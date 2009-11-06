@@ -1,0 +1,14 @@
+<div class="player">
+<h2>[% player %]</h2>
+
+<div class="graph">
+<img src="/graph/games/[% games_json | uri %]">
+</div>
+
+<div class="games">
+[% FOREACH game IN games %]
+[% INCLUDE 'game.tt' %]
+[% END %]
+</div>
+
+</div zclass="player">

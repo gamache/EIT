@@ -1,0 +1,19 @@
+[% IF no_wrap -%]
+[% content -%]
+[% ELSE -%]
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		[% page_title || 'Clan EIT Elite Scoreboard'  %]
+		[% page_subtitle ? ' | ' _ page_subtitle : '' %]
+	</title>
+	<link rel="stylesheet" type="text/css" href="/style/style.css" />
+	<script type="text/javascript" src="/js/prototype.js"></script>
+	<script type="text/javascript" src="/js/eit.js"></script>
+</head>
+<body>
+[% content %]
+</body>
+</html>
+[% END # IF no_wrap %]

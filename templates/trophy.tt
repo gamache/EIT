@@ -1,0 +1,29 @@
+<div class="trophy">
+  <h3 class="trophy">[% trophy_name %]</h3>
+  <table class="trophy">
+    <thead>
+      <tr>
+        <th class="index">Index</th>
+		<th class="player">[% key_name || 'Player' %]</th>
+		<th class="value">[% value_name || 'Score' %]</th>
+      </tr>  
+    </thead>
+    <tbody>
+[% FOREACH r IN results.slice(0,9) -%]
+[% IF r  ## sometimes those elements at the end of the slice are undefined %]
+	<tr class="[% loop.count % 2 == 0   ? 'odd' : 'even' %]">
+    <td class="index">[% loop.count %]</td>
+	<td class="player">
+		<a href="player/[% r.player %]">[% r.player %]</a>
+	</td>
+	<td class="value">
+		<a class="value" title="[% value_name || 'Score' %]">
+			[% r.value | replace('\s+','&nbsp;') %]
+		</a>
+	</td>
+      </tr>
+[% END %]
+[% END %]
+     </tbody>
+   </table>	
+</div>

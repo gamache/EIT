@@ -1,0 +1,162 @@
+body {
+	background-color: #000;
+	color: #eee;
+	
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+	
+/*	font-size: 62.5%;
+	font-size: 1em;    */
+	
+	font-size: 10pt;
+}
+
+.headline {
+	text-align: center;
+}
+
+.section_title {
+	padding-left: 15px;
+	padding-top: 20px;
+	clear: both;
+}
+
+
+div.trophy_group {
+	padding-top: 10px;
+	padding-bottom: 30px;
+}
+
+br.trophy_break {
+	clear: both;
+}
+
+
+div.trophy {
+    width: 180px;
+    min-height: 270px;
+    margin: 20px;
+    float: left;
+}
+table.trophy {
+	width: 100%;
+	border: 0;
+}
+.trophy h3 {
+	height: 40px;
+	display: block;
+}
+
+.trophy thead {
+	display: none;
+}
+.trophy .value,.index {
+	color: #0e0;
+	width: 30px;
+}
+
+.trophy td.value {
+	text-align: right;
+	width: 50px;
+}
+
+.even {
+    background: #222;
+}
+
+.trophy span.monty_player {
+	display: inline-block;
+	width: 80px;
+}
+
+.trophy .bells {
+	font-weight: bold;
+	color: gold;
+}
+
+.trophy a:link {
+	color: #eee;
+	text-decoration: none;
+}
+.trophy .bells a:link {
+	color: gold;
+}
+.trophy a:visited {
+	color: #eee;
+	text-decoration: none;
+}
+.trophy .bells a:visited {
+	color: gold;
+}
+
+
+div.trophy_row {
+	clear: both;
+}
+
+
+
+.selector {
+	text-align: center;
+}
+.selector a:link,a:visited {
+	text-decoration: none;
+	color: #eee;
+}
+.selector ul {
+	list-style-type: none;
+}
+.selector li {
+	display: inline-block;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+
+.game span {
+	display: inline-block;
+}
+
+.game .role,.race,.gender0,.align0 {
+	width: 40px;
+}
+
+.game .maxhp {
+	width: 100px;
+	text-align: right;
+}
+.game .maxhp:after {
+	content: " HP (max)";
+}
+.game .turns {
+	width: 100px;
+	text-align: right;
+}
+.game .turns:after {
+	content: " turns";
+}
+.game .points {
+	width: 130px;
+	text-align: right;
+}
+.game .points:after {
+	content: " points";
+}
+.game .death {
+	margin-left: 30px;
+}
+
+.player .graph {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.player .graph img {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.player .games {
+	margin-left: auto;
+	margin-right: auto;
+}
+
