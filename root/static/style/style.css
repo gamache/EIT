@@ -3,28 +3,73 @@ body {
 	color: #eee;
 	
 	font-family: "Helvetica Neue", Helvetica, sans-serif;
-	
-/*	font-size: 62.5%;
-	font-size: 1em;    */
-	
 	font-size: 10pt;
 }
 
+
+div#wrap {
+	width: 880px;
+	margin-left: auto; 
+  margin-right: auto;
+	position: relative;
+}
+
+div#footer {
+  clear: both;
+	margin-top: 20px;
+  margin-bottom: 20px;
+	text-align: center;
+	color: green;
+}
+
+div#status_msg {
+	clear: both;
+	font-size: 14pt;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: #0e0;
+}
+
+div.search {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+
+.graph {
+	margin-right: auto;
+	margin-left: auto;
+}
+.rightgraph {
+	float: right;
+}
+
+
 .headline {
 	text-align: center;
+	clear: both;
+}
+.updated_on {
+	text-align: center;
+	color: gold;
 }
 
 .section_title {
-	padding-left: 15px;
-	padding-top: 20px;
+	display: block;
+	background-color: #222;
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+	color: gold;
 	clear: both;
 }
 
 
 div.trophy_group {
-	padding-top: 10px;
-	padding-bottom: 30px;
+	margin-top: 30px;
+	margin-bottom: 20px;
 }
+
 
 br.trophy_break {
 	clear: both;
@@ -33,10 +78,19 @@ br.trophy_break {
 
 div.trophy {
     width: 180px;
-    min-height: 270px;
+/*    min-height: 280px;
+	  height: auto!important;
+	  height: 280px;
+*/
     margin: 20px;
+	  margin-top: 10px;
     float: left;
 }
+
+div.doublewide {
+	width: 400px;
+}
+
 table.trophy {
 	width: 100%;
 	border: 0;
@@ -106,7 +160,7 @@ div.trophy_row {
 	list-style-type: none;
 }
 .selector li {
-	display: inline-block;
+	display: inline;
 	padding-left: 15px;
 	padding-right: 15px;
 }
@@ -150,7 +204,8 @@ div.trophy_row {
 	padding-bottom: 20px;
 }
 
-.player .graph img {
+img.graph {
+	display: block;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -160,3 +215,50 @@ div.trophy_row {
 	margin-right: auto;
 }
 
+
+table.games {
+	width: 860px;
+	margin: 10px;
+}
+table.games .player,.role,.race,.gender,.align {
+	display: none;
+}
+table.games td {
+	padding-top: 2px;	
+	padding-bottom: 2px;
+}
+table.games th { 
+	text-align: center; 
+	font-weight: bold;
+	padding-bottom: 5px;
+}
+table thead th {
+	border-bottom: 1px solid green;
+}
+table.games th.character { text-align: left; }
+table.games .character { width: 25%; }
+
+table.games td.conducts { 
+	text-align: right;
+	padding-right: 30px;
+} 
+table.games td.max_hp {
+	text-align: right;
+	padding-right: 15px;
+}
+table.games td.turns {
+	text-align: right;
+	padding-right: 10px;
+}
+table.games td.realtime {
+	text-align: right;
+	padding-right: 10px;
+}
+table.games td.score {
+	text-align: right;
+	padding-right: 10px;
+}
+table.games .outcome { 
+	text-align: left; 
+	padding-left: 10px;
+}

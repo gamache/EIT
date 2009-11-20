@@ -1,5 +1,3 @@
-<h1 class="headline">Elite Scoreboard</h1>
-
 <div class="selector">
 <ul>
 	<li>
@@ -13,7 +11,7 @@
 		</a>
 	</li>
 	<li>
-		<a href="#elite_trophies" onclick="return EIT.show_section('regular_trophies')">
+		<a href="#regular_trophies" onclick="return EIT.show_section('regular_trophies')">
 			Regular Trophies
 		</a>
 	<li>
@@ -29,10 +27,12 @@
 </ul>
 </div>
 
+<hr/>
 
 <div class="trophy_group" id="elite_trophies">
-<h2 class="section_title">Elite Trophies</h2>
 <a name="elite_trophies">
+<h2 class="section_title">Elite Trophies</h2>
+</a>
 
 
 [% INCLUDE 'trophy.tt' 
@@ -59,13 +59,13 @@
 	value_name='Alignment Conversions'
 %]
 
+<br class="trophy_break"/>
+
 [% INCLUDE 'trophy.tt' 
 	results=trophy_results.transsexuals
 	trophy_name='Transsexuals'
 	value_name='Gender Conversions'
 %]
-
-<br class="trophy_break"/>
 
 [% INCLUDE 'trophy.tt' 
 	results=trophy_results.gruesome_deaths
@@ -85,6 +85,8 @@
 	value_name='Deaths by Starvation'
 %]
 
+<br class="trophy_break"/>
+
 [% INCLUDE 'trophy.tt' 
 	results=trophy_results.shopkeeper_brawls
 	trophy_name='Shoplifters'
@@ -97,8 +99,6 @@
 	value_name='Deaths by Petrification'
 %]
 
-<br class="trophy_break"/>
-
 [% INCLUDE 'trophy.tt'
 	results=trophy_results.first_death
 	trophy_name='First Death'
@@ -106,10 +106,12 @@
 %]
 
 [% INCLUDE 'trophy.tt'
-  results=trophy_results.underperformers
-  trophy_name='Underperformers'
-  value_name='Points Per Game'
+  results=trophy_results.retards
+  trophy_name='Retards'
+  value_name='Brainless Deaths'
 %]
+
+<br class="trophy_break"/>
 
 [% INCLUDE 'trophy.tt'
   results=trophy_results.points_per_game
@@ -124,32 +126,26 @@
 %]
 
 [% INCLUDE 'trophy.tt'
+  results=trophy_results.trippers
+  trophy_name='Trippers'
+  value_name='Deaths while Hallucinating'
+%]
+
+[% INCLUDE 'trophy.tt'
   results=trophy_results.runaway
-  trophy_name='RUNAWAY'
+  trophy_name='RUN AWAY'
   value_name='Deaths by Quest Nemesis'
 %]
 
 
+<br class="trophy_break"/>
 
-[% IF 0 %]
-[% INCLUDE 'trophy.tt'
-  results=trophy_results.so_close
-  trophy_name='Sooo Close'
-  value_name='Deaths with the Amulet'
-%]
-
-[% INCLUDE 'trophy.tt'
-	results=trophy_results.trippers
-	trophy_name='Trippers'
-	value_name='Deaths while Hallucinating'
-%]
-[% END %]
-
-
-</div zid="elite_trophies">
+</div> <!-- id="elite_trophies" -->
 
 <div class="trophy_group" id="regular_trophies">
+<a name="regular_trophies">
 <h2 class="section_title">Regular Trophies</h2>
+</a>
 
 [% INCLUDE 'trophy.tt'
 	results=trophy_results.most_ascensions
@@ -175,14 +171,13 @@
 	value_name='Turns'
 %]
 
+<br class="trophy_break"/>
+
 [% INCLUDE 'trophy.tt'
 	results=trophy_results.first_ascension
 	trophy_name='First Ascension'
 	value_name='Date'
 %]
-
-<br class="trophy_break" />
-
 
 [% INCLUDE 'trophy.tt'
 	results=trophy_results.best_behaved_ascension
@@ -201,12 +196,14 @@
 	value_name='Ascensions'
 %]
 
+<br class="trophy_break"/>
 
-</div zid="regular_trophies">
+</div> <!-- id="regular_trophies" -->
 
 <div class="trophy_group" id="high_scores">
-<h2 class="section_title">High Scores</h2>
 <a name="high_scores">
+<h2 class="section_title">High Scores</h2>
+</a>
 
 [% INCLUDE 'trophy.tt'
 	results=trophy_results.high_score
@@ -228,13 +225,12 @@
 	trophy_name='Caveman'
 %]
 
+<br class="trophy_break"/>
 
 [% INCLUDE 'trophy.tt'
 	results=trophy_results.Hea
 	trophy_name='Healer'
 %]
-
-<br class="trophy_break"/>
 
 [% INCLUDE 'trophy.tt'
 	results=trophy_results.Kni
@@ -246,11 +242,12 @@
 	trophy_name='Monk'
 %]
 
-
 [% INCLUDE 'trophy.tt'
 	results=trophy_results.Pri
 	trophy_name='Priest'
 %]
+
+<br class="trophy_break"/>
 
 [% INCLUDE 'trophy.tt'
 	results=trophy_results.Rog
@@ -262,9 +259,6 @@
 	trophy_name='Ranger'
 %]
 
-<br class="trophy_break"/>
-
-
 [% INCLUDE 'trophy.tt'
 	results=trophy_results.Sam
 	trophy_name='Samurai'
@@ -274,6 +268,8 @@
 	results=trophy_results.Tou
 	trophy_name='Tourist'
 %]
+
+<br class="trophy_break"/>
 
 [% INCLUDE 'trophy.tt'
 	results=trophy_results.Val
@@ -286,13 +282,20 @@
 	trophy_name='Wizard'
 %]
 
-</div zid="high_scores">
+<br class="trophy_break"/>
+
+</div> <!-- id="high_scores" -->
 
 
 <div class="trophy_group" id="recognition_trophies">
-<h2 class="section_title">Recognition Trophies</h2>
 <a name="recognition_trophies">
+<h2 class="section_title">Recognition Trophies</h2>
+</a>
 
+
+<div style="display: none"><span class="monty_player bells">
+<a href="#">CSS sucks, so this is somehow necessary.</a>
+</span></div>
 
 [% INCLUDE 'monty.tt' 
 	results=trophy_results.full_monty 
@@ -314,18 +317,20 @@
 	trophy_name='Double Top' 
 	trophy_desc='Ascended every gender and alignment'
 %]
+
+<br class="trophy_break"/>
+
 [% INCLUDE 'monty.tt' 
 	results=trophy_results.birdie     
 	trophy_name='Birdie'     
 	trophy_desc='Ascended every gender'
 %]
 
-<br class="trophy_break"/>
-
 [% INCLUDE 'monty.tt'
 	results=trophy_results.dilithium
 	trophy_name='Dilithium Star'
 	trophy_desc='Ascended'
+	trophy_class='doublewide'
 %]
 
 [% INCLUDE 'monty.tt'
@@ -333,6 +338,8 @@
 	trophy_name='Platinum Star'
 	trophy_desc='Reached the Astral Plane'
 %]
+
+<br class="trophy_break"/>
 
 [% INCLUDE 'monty.tt'
 	results=trophy_results.gold
@@ -352,13 +359,13 @@
 	trophy_desc='Performed the Invocation Ritual'
 %]
 
-<br class="trophy_break" />
-
 [% INCLUDE 'monty.tt'
 	results=trophy_results.steel
 	trophy_name='Steel Star'
 	trophy_desc='Obtained the Book of the Dead'
 %]
+
+<br class="trophy_break"/>
 
 [% INCLUDE 'monty.tt'
 	results=trophy_results.brass
@@ -378,26 +385,29 @@
 	trophy_desc='Defeated Medusa'
 %]
 
-
 [% INCLUDE 'monty.tt'
 	results=trophy_results.iron
 	trophy_name='Iron Star'
 	trophy_desc='Obtained the Bell of Opening'
 %]
 
-<br class="trophy_break" />
+<br class="trophy_break"/>
 
 [% INCLUDE 'monty.tt'
 	results=trophy_results.lead
 	trophy_name='Lead Star'
 	trophy_desc='Reached the bottom of the Gnomish Mines'
+	trophy_class='doublewide'
 %]
+
 
 [% INCLUDE 'monty.tt'
 	results=trophy_results.plastic
 	trophy_name='Plastic Star'
 	trophy_desc='Reached the top of Sokoban'
+	trophy_class='doublewide'
 %]
 
+<br class="trophy_break"/>
 
-</div zid="recognition_trophies">
+</div> <!-- id="recognition_trophies" -->

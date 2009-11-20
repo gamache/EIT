@@ -36,28 +36,52 @@ sub login : Local {
   	'action=login&name=$name';
 }
 
-sub begin :Private {
-  my ($self, $c) = @_;
-  $c->stash->{year} = $c->model('NHT')->year;
-}
+#sub begin :Private {
+#  my ($self, $c) = @_;
+#}
 
 
-sub year :Regex('^(\d\d\d\d)/(.+)') {
+sub year :Regex('^(\d\d\d\d)(.+)') {
   my ($self, $c) = @_;
   $c->stash->{year} = $c->req->captures->[0];
-  $c->forward( $c->req->captures->[1] );
+$c->log->debug("year is ". $c->stash->{year});
+  $c->forward( $c->req->captures->[1] || '/' );
 }
 
 sub index :Path :Args(0) {
     my ( $self, $c ) = @_;
 
-    $c->stash->{trophies} = $c->model('NHT')->nht->trophies;
+    $c->cache_page('3000');
+
+
+		$c->stash->{updated_on} = $c->model('NHT')->updated_on;
+
+    $c->stash->{trophies} = $c->model('NHT')->trophies;
     for my $t (@{ $c->stash->{trophies} }) {
-      $c->stash->{trophy_results}{$t} = $c->model('NHT')->nht->trophy($t);
+      $c->stash->{trophy_results}{$t} = $c->model('NHT')->trophy($t);
     }
     
     $c->stash->{stars} = \@NHT::stars;
+		$c->stash->{template} = 'index.tt';
 }
+
+sub search : Local {
+	my ($self, $c) = @_;
+  my $q = $c->req->params->{q};
+	if ($q && $c->model('NHT')->games($q)) {
+		$c->res->redirect("/player/$q");
+		$c->detach;
+	}
+	elsif ($q ne '') {
+		$c->stash->{status_msg} = "Can't find anyone named $q.";
+		$c->forward('index');
+	}
+	else {
+		$c->res->redirect('/');
+		$c->detach;
+	}
+}
+
 
 sub default :Path {
     my ( $self, $c ) = @_;
@@ -71,10 +95,23 @@ sub player :Path('player') Args(1) {
   
   if ($player) {
     $c->stash->{player}     = $player;
-    $c->stash->{games}      = $c->model('NHT')->nht->games($player);
+    $c->stash->{games}      = $c->model('NHT')->games($player);
     $c->stash->{games_json} = JSON::Any->encode( $c->stash->{games} );
     $c->stash->{page_subtitle} = "$player";
   }
+}
+
+sub game :Path('game') Args(1) {
+	my ($self, $c, $game_id) = @_;
+
+	if ($game_id) {
+		$c->stash->{game} = $c->model('NHT')->game($game_id);
+		$c->stash->{status_msg} = "Couldn't find game $game_id" unless
+			$c->stash->{game};
+	}
+	else {
+		$c->stash->{status_msg} = 'No game specified!';
+	}
 }
 
 

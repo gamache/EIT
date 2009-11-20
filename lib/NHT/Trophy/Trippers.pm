@@ -7,7 +7,7 @@ sub results {
 	
 	my %tripper;
 	for my $game (@{ $nht->games }) {
-		$tripper{ $game->{name} }++ if $game->{death}=~/hallucinating/;
+		$tripper{ $game->{name} }++ if $game->{death}=~/^killed by a hallucinogen-distorted/;
 	}
 	
 	my @trippers = map { { player => $_, value => $tripper{$_} } }

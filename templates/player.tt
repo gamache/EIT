@@ -1,14 +1,24 @@
 <div class="player">
-<h2>[% player %]</h2>
+[% UNLESS player == 'no thanks lol eit_krog' %]
+<h2 class="headline">[% player %]</h2>
 
 <div class="graph">
-<img src="/graph/games/[% games_json | uri %]">
+<img class="graph scores_graph" src="http://graph.gunyoki.net/games/[% player %]">
 </div>
+[% ELSE %]
 
-<div class="games">
-[% FOREACH game IN games %]
-[% INCLUDE 'game.tt' %]
+<h2 class="headline">[% player %]</h2>
+
+<p>[% games.size %] games played</p>
+<p>[% ascensions %] ascensions</p>
+
+<img class="rightgraph" src="http://graph.gunyoki.net/games/[% player %]">
+
+
+
 [% END %]
-</div>
 
-</div zclass="player">
+[% INCLUDE 'games_table.tt' %]
+
+</div> <!-- class="player" -->
+

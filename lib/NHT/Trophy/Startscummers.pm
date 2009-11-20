@@ -7,8 +7,9 @@ sub results {
 
   my %scummer;
   for my $game (@{$nht->games}) {
-    $scummer{ $game->{name} }++ if $game->{turns} < 5 && 
-                                   $game->{death} =~ /(quit|escaped)/;
+    $scummer{ $game->{name} }++ if #$game->{turns} < 5 && 
+																	 $game->{points} < 1000; # &&
+#                                   $game->{death} =~ /(quit|escaped)/;
   }
 
   my @scum = map { { player => $_, value => $scummer{$_} } }

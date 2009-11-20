@@ -16,7 +16,9 @@ use Catalyst::Runtime 5.80;
 use parent qw/Catalyst/;
 use Catalyst qw/-Debug
                 ConfigLoader
-                Static::Simple/;
+								Cache::FastMmap
+								PageCache
+                /;
 
 our $VERSION = '0.1';
 
@@ -38,6 +40,10 @@ __PACKAGE__->config->{static} = {
     ],
 };
 
+__PACKAGE__->config->{'View::JSON'} = {
+	expose_stash => 'json',
+	allow_callback => 0,
+};
 
 # Start the application
 __PACKAGE__->setup();

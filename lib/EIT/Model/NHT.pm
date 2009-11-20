@@ -6,6 +6,11 @@ use parent qw/Catalyst::Model/;
 use NHT;
 use Data::Dumper;
 
+sub ACCEPT_CONTEXT {
+	my ($self, $c) = @_;
+	return $self->nht($c->stash->{year});	
+}
+
 sub new {
   my $self = shift->next::method(@_);
   #warn Dumper $self;

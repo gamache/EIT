@@ -60,8 +60,11 @@ players and clans.
 =head1 METHODS
 
   my $nht = NHT->new(%args); # loads 
+	$nht->updated_on;          # returns string date of last update
+	$nht->servers;             # returns arrayref of server ID numbers
   $nht->reload;              # reloads all data and trophies
   $nht->players;             # returns arrayref of player names
+	$nht->game($game_id);      # returns game hashref
   $nht->games;               # returns arrayref of all games
   $nht->games($player);      # returns arrayref of one player's games,
                              # sorted in chronological order
@@ -89,6 +92,14 @@ sub new {
   return $self->init(%args);
 }
 
+sub updated_on {
+	shift->{UPDATED_ON}
+}
+
+sub servers {
+	shift->{SERVERS}
+}
+
 sub reload {
   my ($self) = @_;
   $self->debug("Reloading everything...");
@@ -101,11 +112,17 @@ sub players {
   return \@players;
 }
 
+sub game {
+	my ($self, $game_id) = @_;
+	return $self->{GAME}{$game_id};
+}
+
 sub games {
   my ($self, $player) = @_;
   my $games_ref;
   
   if ($player) {
+		return undef unless defined $self->{PLAYER}{$player};
     $games_ref = $self->{PLAYER}{$player} || [];
   }
   else {
@@ -179,6 +196,8 @@ sub init {
   die $! unless $self->load_trophies;
   die $! unless $self->load_xlogfile(%args);
   die $! unless $self->compute_stats;
+	
+	$self->{UPDATED_ON} = `date`;
 
   return $self;
 }
@@ -333,6 +352,12 @@ sub compute_stats {
   my ($self) = @_;
   
   $self->debug("Computing stats...");
+
+	$self->debug("  finding server names");
+  my %server_id = 
+		map {/^(\d+)-/; $1 => 1}
+			keys %{ $self->{GAME} } ;
+	$self->{SERVERS} = [ sort {$a<=>$b} keys %server_id ];
   
   sub highscore { $b->{points} <=> $a->{points} }
   

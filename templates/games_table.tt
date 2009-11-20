@@ -1,0 +1,64 @@
+<table class="games">
+<thead>
+<tr>
+[% IF 0 -%]
+  <th class="player">Player</th>
+  <th class="role">Role</th>
+  <th class="race">Race</th>
+  <th class="gender">Gender</th>
+  <th class="align">Align</th>
+[% END -%]
+  <th class="character">Character</th>
+  <th class="conducts">Conducts</th>
+  <th class="max_hp">Max HP</th>
+  <th class="turns">Turns</th>
+  <th class="realtime">Time</th>
+  <th class="score">Score</th>
+  <th class="outcome">Outcome</th>
+</tr>
+</thead>
+<tbody>
+[% FOREACH game IN games %]
+<!--
+[% 
+#condlist = [];
+#game.foodless && condlist.push('Foodless');
+#game.vegan && condlist.push('Vegan')
+#game.vegetarian && condlist.push('Vegetarian')
+#game.atheist && condlist.push('Atheist')
+#game.weaponless && condlist.push('Weaponless')
+#game.pacifist && condlist.push('Pacifist')
+#game.illiterate && condlist.push('Illiterate')
+#game.condlist.push('Polypileless')
+#condlist.push('Polyselfless')
+#condlist.push('Wishless')
+#condlist.push('Artifact wishless')
+#condlist.push('Genocideless')
+#condstr = condlist.sort.join(', ');
+-%]
+-->
+<tr [% loop.count % 2 == 0  ?  'class="even"'  : '' %]>
+[% IF 0 -%]
+  <td class="player">[% game.name %]</td>
+  <td class="role">[% game.role %]</td>
+  <td class="race">[% game.race %]</td>
+  <td class="gender">[% game.gender %]</td>
+  <td class="align">[% game.align %]</td>
+[% END -%]
+  <td class="character">
+    [% game.name %]-[% game.role %]-[% game.race %]-[%
+       game.gender %]-[% game.align %]
+  </td>
+  <td class="conducts">
+		<span title="[% condstr %]">[% game.conduct %]</span>
+	</td>
+  <td class="max_hp">[% game.maxhp %]</td>
+  <td class="turns">[% game.turns %]</td>
+  <td class="realtime">[% game.realtime_hms %]</td>
+  <td class="score">[% game.points %]</td>
+  <td class="outcome">[% game.death %]</td>
+  <!-- [% game.json %] -->
+</tr>
+[% END %]
+</tbody>
+</table>

@@ -11,9 +11,51 @@
 	<link rel="stylesheet" type="text/css" href="/style/style.css" />
 	<script type="text/javascript" src="/js/prototype.js"></script>
 	<script type="text/javascript" src="/js/eit.js"></script>
-</head>
 <body>
+<div id="wrap">
+
+<div id="header">
+<div class="search top_search">
+<form action="/search" method="get">
+<input class="searchbox" type="text" name="q" />
+<input class="searchbutton" type="submit" value="Search" />
+</form>
+</div>
+
+<h1 class="headline"><a href="/">Elite Scoreboard</a></h1>
+[% IF updated_on %]
+<h3 class="headline updated_on">Updated: [% updated_on %]</h3>
+[% END %]
+</div> <!-- id="header" -->
+
+[% IF status_msg -%]
+<div id="status_msg">
+[% status_msg %]
+</div>
+[% END -%]
+
+<div id="content">
 [% content %]
+</div><!-- id="content" -->
+
+<div id="footer">
+copyright 1979-2009 eit_krog.  
+this data updates every ten minutes.  
+go kill things
+</div><!-- id="footer" -->
+
+</div> <!-- id="wrap" -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-11553617-1");
+pageTracker._setDomainName("none");
+pageTracker._setAllowLinker(true);
+pageTracker._trackPageview();
+} catch(err) {}</script>
 </body>
 </html>
 [% END # IF no_wrap %]
