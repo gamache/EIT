@@ -49,7 +49,7 @@
 
 [% INCLUDE 'trophy.tt' 
 	results=trophy_results.helpless_fucks
-	trophy_name='Helpless Fucks'
+	trophy_name='Helpless Deaths'
 	value_name='Helpless Deaths'
 %]
 
