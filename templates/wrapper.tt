@@ -15,6 +15,9 @@
 <div id="wrap">
 
 <div id="header">
+<div class="year-links">
+<a href="/2008/">2008</a> | <a href="/2009/">2009</a> | <b>2010</b>
+</div>
 <div class="search top_search">
 <form action="/search" method="get">
 <input class="searchbox" type="text" name="q" />
@@ -22,7 +25,7 @@
 </form>
 </div>
 
-<h1 class="headline"><a href="/">Elite Scoreboard</a></h1>
+<h1 class="headline"><a href="/">Clan EIT Elite Scoreboard</a></h1>
 [% IF updated_on %]
 <h3 class="headline updated_on">Updated: [% updated_on %]</h3>
 [% END %]
@@ -39,7 +42,7 @@
 </div><!-- id="content" -->
 
 <div id="footer">
-copyright 1979-2009 eit_krog.  
+copyright 1979-2010 eit_krog.  
 this data updates every ten minutes.  
 go kill things
 </div><!-- id="footer" -->

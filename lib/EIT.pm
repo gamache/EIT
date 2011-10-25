@@ -18,6 +18,7 @@ use Catalyst qw/-Debug
                 ConfigLoader
 								Cache::FastMmap
 								PageCache
+                Static::Simple
                 /;
 
 our $VERSION = '0.1';

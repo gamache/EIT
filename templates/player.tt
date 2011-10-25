@@ -1,5 +1,5 @@
 <div class="player">
-[% UNLESS player == 'no thanks lol eit_krog' %]
+[% IF player != 'o lol eit_krog' %]
 <h2 class="headline">[% player %]</h2>
 
 <div class="graph">

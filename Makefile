@@ -1,7 +1,7 @@
 # This Makefile is for the EIT extension to perl.
 #
 # It was generated automatically by MakeMaker version
-# 6.55_02 (Revision: 65502) from the contents of
+# 6.56 (Revision: 65600) from the contents of
 # Makefile.PL. Don't edit this file, edit Makefile.PL instead.
 #
 #       ANY CHANGES MADE HERE WILL BE LOST!
@@ -11,50 +11,48 @@
 
 #   MakeMaker Parameters:
 
-#     ABSTRACT => q[Catalyst based application]
-#     AUTHOR => q[pete gamache]
-#     BUILD_REQUIRES => {  }
-#     DIR => []
+#     AUTHOR => q[]
+#     BUILD_REQUIRES => { ExtUtils::MakeMaker=>q[6.36] }
 #     DISTNAME => q[EIT]
-#     EXE_FILES => [q[script/eit_cgi.pl], q[script/eit_create.pl], q[script/eit_fastcgi.pl], q[script/eit_server.pl], q[script/eit_test.pl]]
+#     EXE_FILES => [q[script/eit2010_cgi.pl], q[script/eit2010_create.pl], q[script/eit2010_fastcgi.pl], q[script/eit2010_server.pl], q[script/eit2010_test.pl], q[script/eit_cgi.pl], q[script/eit_create.pl], q[script/eit_fastcgi.pl], q[script/eit_server.pl], q[script/eit_test.pl]]
 #     NAME => q[EIT]
 #     NO_META => q[1]
-#     PL_FILES => {  }
-#     PREREQ_PM => { parent=>q[0], Catalyst::Plugin::Static::Simple=>q[0], ExtUtils::MakeMaker=>q[6.42], Catalyst::Plugin::ConfigLoader=>q[0], Config::General=>q[0], Catalyst::Runtime=>q[5.80013], Catalyst::Action::RenderView=>q[0] }
-#     VERSION => q[0.01]
+#     PREREQ_PM => { parent=>q[0], Catalyst::Plugin::Static::Simple=>q[0], ExtUtils::MakeMaker=>q[6.36], Catalyst::Plugin::ConfigLoader=>q[0], Config::General=>q[0], Catalyst::Runtime=>q[5.80013], Catalyst::Action::RenderView=>q[0] }
+#     VERSION => q[0.1]
+#     VERSION_FROM => q[lib/EIT.pm]
 #     dist => { PREOP=>q[$(PERL) -I. "-MModule::Install::Admin" -e "dist_preop(q($(DISTVNAME)))"] }
 #     realclean => { FILES=>q[MYMETA.yml] }
-#     test => { TESTS=>q[t/01app.t t/02pod.t t/03podcoverage.t t/04nht.t] }
+#     test => { TESTS=>q[t/01app.t t/02pod.t t/03podcoverage.t t/04nht.t t/controller_JSON.t t/model_NHT.t t/view_JSON.t t/view_TT.t] }
 
 # --- MakeMaker post_initialize section:
 
 
 # --- MakeMaker const_config section:
 
-# These definitions are from config.sh (via /System/Library/Perl/5.10.1/darwin-2level/Config.pm).
+# These definitions are from config.sh (via /usr/lib/perl/5.12/Config.pm).
 # They may have been overridden via Makefile.PL or on the command line.
 AR = ar
 CC = cc
-CCCDLFLAGS =  
-CCDLFLAGS =  
-DLEXT = bundle
+CCCDLFLAGS = -fPIC
+CCDLFLAGS = -Wl,-E
+DLEXT = so
 DLSRC = dl_dlopen.xs
 EXE_EXT = 
 FULL_AR = /usr/bin/ar
-LD = env MACOSX_DEPLOYMENT_TARGET=10.3 cc
-LDDLFLAGS =  -bundle -undefined dynamic_lookup -L/usr/local/lib -L/opt/local/lib -fstack-protector
-LDFLAGS =  -fstack-protector -L/usr/local/lib -L/opt/local/lib
-LIBC = /usr/lib/libc.dylib
+LD = cc
+LDDLFLAGS = -shared -O2 -g -L/usr/local/lib -fstack-protector
+LDFLAGS =  -fstack-protector -L/usr/local/lib
+LIBC = 
 LIB_EXT = .a
 OBJ_EXT = .o
-OSNAME = darwin
-OSVERS = 10.0.0
-RANLIB = ranlib
-SITELIBEXP = /Library/Perl/5.10.1
-SITEARCHEXP = /Library/Perl/5.10.1/darwin-2level
-SO = dylib
-VENDORARCHEXP = /Network/Library/Perl/5.10.1/darwin-2level
-VENDORLIBEXP = /Network/Library/Perl/5.10.1
+OSNAME = linux
+OSVERS = 2.6.24-28-server
+RANLIB = :
+SITELIBEXP = /usr/local/share/perl/5.12.4
+SITEARCHEXP = /usr/local/lib/perl/5.12.4
+SO = so
+VENDORARCHEXP = /usr/lib/perl5
+VENDORLIBEXP = /usr/share/perl5
 
 
 # --- MakeMaker constants section:
@@ -63,11 +61,11 @@ DIRFILESEP = /
 DFSEP = $(DIRFILESEP)
 NAME = EIT
 NAME_SYM = EIT
-VERSION = 0.01
+VERSION = 0.1
 VERSION_MACRO = VERSION
-VERSION_SYM = 0_01
+VERSION_SYM = 0_1
 DEFINE_VERSION = -D$(VERSION_MACRO)=\"$(VERSION)\"
-XS_VERSION = 0.01
+XS_VERSION = 0.1
 XS_VERSION_MACRO = XS_VERSION
 XS_DEFINE_VERSION = -D$(XS_VERSION_MACRO)=\"$(XS_VERSION)\"
 INST_ARCHLIB = blib/arch
@@ -76,58 +74,58 @@ INST_BIN = blib/bin
 INST_LIB = blib/lib
 INST_MAN1DIR = blib/man1
 INST_MAN3DIR = blib/man3
-MAN1EXT = 1
-MAN3EXT = 3
+MAN1EXT = 1p
+MAN3EXT = 3pm
 INSTALLDIRS = site
 DESTDIR = 
-PREFIX = $(SITEPREFIX)
-PERLPREFIX = /
-SITEPREFIX = /usr/local
-VENDORPREFIX = /
-INSTALLPRIVLIB = /System/Library/Perl/5.10.1
+PREFIX = /usr
+PERLPREFIX = $(PREFIX)
+SITEPREFIX = $(PREFIX)/local
+VENDORPREFIX = $(PREFIX)
+INSTALLPRIVLIB = $(PERLPREFIX)/share/perl/5.12
 DESTINSTALLPRIVLIB = $(DESTDIR)$(INSTALLPRIVLIB)
-INSTALLSITELIB = /Library/Perl/5.10.1
+INSTALLSITELIB = $(SITEPREFIX)/share/perl/5.12.4
 DESTINSTALLSITELIB = $(DESTDIR)$(INSTALLSITELIB)
-INSTALLVENDORLIB = /Network/Library/Perl/5.10.1
+INSTALLVENDORLIB = $(VENDORPREFIX)/share/perl5
 DESTINSTALLVENDORLIB = $(DESTDIR)$(INSTALLVENDORLIB)
-INSTALLARCHLIB = /System/Library/Perl/5.10.1/darwin-2level
+INSTALLARCHLIB = $(PERLPREFIX)/lib/perl/5.12
 DESTINSTALLARCHLIB = $(DESTDIR)$(INSTALLARCHLIB)
-INSTALLSITEARCH = /Library/Perl/5.10.1/darwin-2level
+INSTALLSITEARCH = $(SITEPREFIX)/lib/perl/5.12.4
 DESTINSTALLSITEARCH = $(DESTDIR)$(INSTALLSITEARCH)
-INSTALLVENDORARCH = /Network/Library/Perl/5.10.1/darwin-2level
+INSTALLVENDORARCH = $(VENDORPREFIX)/lib/perl5
 DESTINSTALLVENDORARCH = $(DESTDIR)$(INSTALLVENDORARCH)
-INSTALLBIN = /usr/bin
+INSTALLBIN = $(PERLPREFIX)/bin
 DESTINSTALLBIN = $(DESTDIR)$(INSTALLBIN)
-INSTALLSITEBIN = /usr/local/bin
+INSTALLSITEBIN = $(SITEPREFIX)/bin
 DESTINSTALLSITEBIN = $(DESTDIR)$(INSTALLSITEBIN)
-INSTALLVENDORBIN = /usr/bin
+INSTALLVENDORBIN = $(VENDORPREFIX)/bin
 DESTINSTALLVENDORBIN = $(DESTDIR)$(INSTALLVENDORBIN)
-INSTALLSCRIPT = /usr/bin
+INSTALLSCRIPT = $(PERLPREFIX)/bin
 DESTINSTALLSCRIPT = $(DESTDIR)$(INSTALLSCRIPT)
-INSTALLSITESCRIPT = /usr/local/bin
+INSTALLSITESCRIPT = $(SITEPREFIX)/bin
 DESTINSTALLSITESCRIPT = $(DESTDIR)$(INSTALLSITESCRIPT)
-INSTALLVENDORSCRIPT = /usr/bin
+INSTALLVENDORSCRIPT = $(VENDORPREFIX)/bin
 DESTINSTALLVENDORSCRIPT = $(DESTDIR)$(INSTALLVENDORSCRIPT)
-INSTALLMAN1DIR = /usr/share/man/man1
+INSTALLMAN1DIR = $(PERLPREFIX)/share/man/man1
 DESTINSTALLMAN1DIR = $(DESTDIR)$(INSTALLMAN1DIR)
-INSTALLSITEMAN1DIR = /usr/local/share/man/man1
+INSTALLSITEMAN1DIR = $(SITEPREFIX)/man/man1
 DESTINSTALLSITEMAN1DIR = $(DESTDIR)$(INSTALLSITEMAN1DIR)
-INSTALLVENDORMAN1DIR = /usr/share/man/man1
+INSTALLVENDORMAN1DIR = $(VENDORPREFIX)/share/man/man1
 DESTINSTALLVENDORMAN1DIR = $(DESTDIR)$(INSTALLVENDORMAN1DIR)
-INSTALLMAN3DIR = /usr/share/man/man3
+INSTALLMAN3DIR = $(PERLPREFIX)/share/man/man3
 DESTINSTALLMAN3DIR = $(DESTDIR)$(INSTALLMAN3DIR)
-INSTALLSITEMAN3DIR = /usr/local/share/man/man3
+INSTALLSITEMAN3DIR = $(SITEPREFIX)/man/man3
 DESTINSTALLSITEMAN3DIR = $(DESTDIR)$(INSTALLSITEMAN3DIR)
-INSTALLVENDORMAN3DIR = /usr/share/man/man3
+INSTALLVENDORMAN3DIR = $(VENDORPREFIX)/share/man/man3
 DESTINSTALLVENDORMAN3DIR = $(DESTDIR)$(INSTALLVENDORMAN3DIR)
 PERL_LIB =
-PERL_ARCHLIB = /System/Library/Perl/5.10.1/darwin-2level
+PERL_ARCHLIB = /usr/lib/perl/5.12
 LIBPERL_A = libperl.a
 FIRST_MAKEFILE = Makefile
 MAKEFILE_OLD = Makefile.old
 MAKE_APERL_FILE = Makefile.aperl
 PERLMAINCC = $(CC)
-PERL_INC = /System/Library/Perl/5.10.1/darwin-2level/CORE
+PERL_INC = /usr/lib/perl/5.12/CORE
 PERL = /usr/bin/perl "-Iinc"
 FULLPERL = /usr/bin/perl "-Iinc"
 ABSPERL = $(PERL)
@@ -142,9 +140,9 @@ PERM_DIR = 755
 PERM_RW = 644
 PERM_RWX = 755
 
-MAKEMAKER   = /System/Library/Perl/5.10.1/ExtUtils/MakeMaker.pm
-MM_VERSION  = 6.55_02
-MM_REVISION = 65502
+MAKEMAKER   = /usr/share/perl/5.12/ExtUtils/MakeMaker.pm
+MM_VERSION  = 6.56
+MM_REVISION = 65600
 
 # FULLEXT = Pathname for extension directory (eg Foo/Bar/Oracle).
 # BASEEXT = Basename part of FULLEXT. May be just equal FULLEXT. (eg Oracle)
@@ -155,7 +153,7 @@ FULLEXT = EIT
 BASEEXT = EIT
 PARENT_NAME = 
 DLBASE = $(BASEEXT)
-VERSION_FROM = 
+VERSION_FROM = lib/EIT.pm
 OBJECT = 
 LDFROM = $(OBJECT)
 LINKTYPE = dynamic
@@ -166,13 +164,18 @@ XS_FILES =
 C_FILES  = 
 O_FILES  = 
 H_FILES  = 
-MAN1PODS = script/eit_cgi.pl \
+MAN1PODS = script/eit2010_cgi.pl \
+	script/eit2010_create.pl \
+	script/eit2010_fastcgi.pl \
+	script/eit2010_server.pl \
+	script/eit2010_test.pl \
+	script/eit_cgi.pl \
 	script/eit_create.pl \
 	script/eit_fastcgi.pl \
 	script/eit_server.pl \
 	script/eit_test.pl
-MAN3PODS = lib/EIT.pm \
-	lib/EIT/Controller/Root.pm \
+MAN3PODS = lib/EIT/Controller/Root.pm \
+	lib/EIT/View/TT.pm \
 	lib/NHT.pm
 
 # Where is the Config information that we are using/depend on
@@ -195,29 +198,155 @@ PERL_ARCHIVE       =
 PERL_ARCHIVE_AFTER = 
 
 
-TO_INST_PM = lib/EIT.pm \
+TO_INST_PM = lib/.DS_Store \
+	lib/EIT.pm \
+	lib/EIT/.DS_Store \
+	lib/EIT/Controller/JSON.pm \
 	lib/EIT/Controller/Root.pm \
+	lib/EIT/Model/NHT.pm \
+	lib/EIT/View/JSON.pm \
+	lib/EIT/View/TT.pm \
 	lib/NHT.pm \
+	lib/NHT/.DS_Store \
 	lib/NHT/Trophy.pm \
+	lib/NHT/Trophy/Anorexics.pm \
+	lib/NHT/Trophy/AscensionsPerGame.pm \
+	lib/NHT/Trophy/BestBehavedAscension.pm \
+	lib/NHT/Trophy/BestOf13.pm \
+	lib/NHT/Trophy/DeathRay.pm \
+	lib/NHT/Trophy/FastestAscensionGametime.pm \
+	lib/NHT/Trophy/FastestAscensionRealtime.pm \
+	lib/NHT/Trophy/FirstAscension.pm \
+	lib/NHT/Trophy/FirstDeath.pm \
+	lib/NHT/Trophy/Gluttons.pm \
+	lib/NHT/Trophy/GruesomeDeaths.pm \
+	lib/NHT/Trophy/HelplessFucks.pm \
+	lib/NHT/Trophy/HighScore.pm \
+	lib/NHT/Trophy/HighestScoredAscension.pm \
+	lib/NHT/Trophy/LowestScoredAscension.pm \
+	lib/NHT/Trophy/Monty.pm \
 	lib/NHT/Trophy/MostAscensions.pm \
-	test_NHT.pl
+	lib/NHT/Trophy/PointsPerGame.pm \
+	lib/NHT/Trophy/Retards.pm \
+	lib/NHT/Trophy/RoleHighScores.pm \
+	lib/NHT/Trophy/Runaway.pm \
+	lib/NHT/Trophy/ShopkeeperBrawls.pm \
+	lib/NHT/Trophy/SlowestAscensionGametime.pm \
+	lib/NHT/Trophy/SlowestAscensionRealtime.pm \
+	lib/NHT/Trophy/SoClose.pm \
+	lib/NHT/Trophy/Stars.pm \
+	lib/NHT/Trophy/Startscummers.pm \
+	lib/NHT/Trophy/Stoners.pm \
+	lib/NHT/Trophy/Traitors.pm \
+	lib/NHT/Trophy/Transsexuals.pm \
+	lib/NHT/Trophy/Trippers.pm \
+	lib/NHT/Trophy/Underperformers.pm \
+	test_NHT.pl \
+	update_clan_info.pl \
+	update_scores.pl \
+	update_scores_2008.pl \
+	update_scores_2009.pl
 
-PM_TO_BLIB = test_NHT.pl \
+PM_TO_BLIB = lib/NHT/Trophy/Runaway.pm \
+	blib/lib/NHT/Trophy/Runaway.pm \
+	lib/NHT/.DS_Store \
+	blib/lib/NHT/.DS_Store \
+	update_scores_2009.pl \
+	$(INST_LIB)/update_scores_2009.pl \
+	lib/NHT/Trophy/FastestAscensionRealtime.pm \
+	blib/lib/NHT/Trophy/FastestAscensionRealtime.pm \
+	test_NHT.pl \
 	$(INST_LIB)/test_NHT.pl \
+	lib/NHT/Trophy/SlowestAscensionRealtime.pm \
+	blib/lib/NHT/Trophy/SlowestAscensionRealtime.pm \
+	update_scores_2008.pl \
+	$(INST_LIB)/update_scores_2008.pl \
+	lib/NHT/Trophy/DeathRay.pm \
+	blib/lib/NHT/Trophy/DeathRay.pm \
+	lib/.DS_Store \
+	blib/lib/.DS_Store \
+	lib/NHT/Trophy/Startscummers.pm \
+	blib/lib/NHT/Trophy/Startscummers.pm \
+	lib/NHT/Trophy/PointsPerGame.pm \
+	blib/lib/NHT/Trophy/PointsPerGame.pm \
+	lib/EIT/View/JSON.pm \
+	blib/lib/EIT/View/JSON.pm \
+	lib/NHT/Trophy/RoleHighScores.pm \
+	blib/lib/NHT/Trophy/RoleHighScores.pm \
+	lib/NHT/Trophy/Gluttons.pm \
+	blib/lib/NHT/Trophy/Gluttons.pm \
+	update_clan_info.pl \
+	$(INST_LIB)/update_clan_info.pl \
+	lib/NHT/Trophy/GruesomeDeaths.pm \
+	blib/lib/NHT/Trophy/GruesomeDeaths.pm \
+	lib/NHT/Trophy/Monty.pm \
+	blib/lib/NHT/Trophy/Monty.pm \
+	lib/NHT/Trophy/Transsexuals.pm \
+	blib/lib/NHT/Trophy/Transsexuals.pm \
+	lib/NHT/Trophy/Anorexics.pm \
+	blib/lib/NHT/Trophy/Anorexics.pm \
+	lib/NHT/Trophy/LowestScoredAscension.pm \
+	blib/lib/NHT/Trophy/LowestScoredAscension.pm \
+	lib/NHT/Trophy/FirstAscension.pm \
+	blib/lib/NHT/Trophy/FirstAscension.pm \
+	lib/EIT/Controller/JSON.pm \
+	blib/lib/EIT/Controller/JSON.pm \
 	lib/NHT/Trophy.pm \
 	blib/lib/NHT/Trophy.pm \
-	lib/NHT/Trophy/MostAscensions.pm \
-	blib/lib/NHT/Trophy/MostAscensions.pm \
 	lib/NHT.pm \
 	blib/lib/NHT.pm \
+	lib/NHT/Trophy/FirstDeath.pm \
+	blib/lib/NHT/Trophy/FirstDeath.pm \
+	lib/NHT/Trophy/Trippers.pm \
+	blib/lib/NHT/Trophy/Trippers.pm \
+	lib/NHT/Trophy/SlowestAscensionGametime.pm \
+	blib/lib/NHT/Trophy/SlowestAscensionGametime.pm \
+	lib/EIT/View/TT.pm \
+	blib/lib/EIT/View/TT.pm \
+	lib/NHT/Trophy/HelplessFucks.pm \
+	blib/lib/NHT/Trophy/HelplessFucks.pm \
+	lib/NHT/Trophy/HighScore.pm \
+	blib/lib/NHT/Trophy/HighScore.pm \
+	lib/NHT/Trophy/Stars.pm \
+	blib/lib/NHT/Trophy/Stars.pm \
+	lib/NHT/Trophy/BestOf13.pm \
+	blib/lib/NHT/Trophy/BestOf13.pm \
+	lib/NHT/Trophy/Underperformers.pm \
+	blib/lib/NHT/Trophy/Underperformers.pm \
+	lib/NHT/Trophy/FastestAscensionGametime.pm \
+	blib/lib/NHT/Trophy/FastestAscensionGametime.pm \
 	lib/EIT/Controller/Root.pm \
 	blib/lib/EIT/Controller/Root.pm \
+	lib/EIT/Model/NHT.pm \
+	blib/lib/EIT/Model/NHT.pm \
+	lib/NHT/Trophy/ShopkeeperBrawls.pm \
+	blib/lib/NHT/Trophy/ShopkeeperBrawls.pm \
+	lib/NHT/Trophy/AscensionsPerGame.pm \
+	blib/lib/NHT/Trophy/AscensionsPerGame.pm \
+	lib/NHT/Trophy/HighestScoredAscension.pm \
+	blib/lib/NHT/Trophy/HighestScoredAscension.pm \
 	lib/EIT.pm \
-	blib/lib/EIT.pm
+	blib/lib/EIT.pm \
+	update_scores.pl \
+	$(INST_LIB)/update_scores.pl \
+	lib/NHT/Trophy/Retards.pm \
+	blib/lib/NHT/Trophy/Retards.pm \
+	lib/NHT/Trophy/Stoners.pm \
+	blib/lib/NHT/Trophy/Stoners.pm \
+	lib/NHT/Trophy/Traitors.pm \
+	blib/lib/NHT/Trophy/Traitors.pm \
+	lib/NHT/Trophy/BestBehavedAscension.pm \
+	blib/lib/NHT/Trophy/BestBehavedAscension.pm \
+	lib/NHT/Trophy/SoClose.pm \
+	blib/lib/NHT/Trophy/SoClose.pm \
+	lib/NHT/Trophy/MostAscensions.pm \
+	blib/lib/NHT/Trophy/MostAscensions.pm \
+	lib/EIT/.DS_Store \
+	blib/lib/EIT/.DS_Store
 
 
 # --- MakeMaker platform_constants section:
-MM_Unix_VERSION = 6.55_02
+MM_Unix_VERSION = 6.56
 PERL_MALLOC_DEF = -DPERL_EXTMALLOC_DEF -Dmalloc=Perl_malloc -Dfree=Perl_mfree -Drealloc=Perl_realloc -Dcalloc=Perl_calloc
 
 
@@ -267,7 +396,7 @@ makemakerdflt : all
 
 
 # --- MakeMaker dist section:
-TAR = COPY_EXTENDED_ATTRIBUTES_DISABLE=1 COPYFILE_DISABLE=1 tar
+TAR = tar
 TARFLAGS = cvf
 ZIP = zip
 ZIPFLAGS = -r
@@ -282,7 +411,7 @@ RCS_LABEL = rcs -Nv$(VERSION_SYM): -q
 DIST_CP = best
 DIST_DEFAULT = tardist
 DISTNAME = EIT
-DISTVNAME = EIT-0.01
+DISTVNAME = EIT-0.1
 
 
 # --- MakeMaker macro section:
@@ -435,24 +564,34 @@ POD2MAN = $(POD2MAN_EXE)
 
 
 manifypods : pure_all  \
-	script/eit_cgi.pl \
+	script/eit2010_test.pl \
 	script/eit_server.pl \
 	script/eit_create.pl \
+	script/eit2010_cgi.pl \
+	script/eit_cgi.pl \
 	script/eit_test.pl \
+	script/eit2010_create.pl \
+	script/eit2010_fastcgi.pl \
+	script/eit2010_server.pl \
 	script/eit_fastcgi.pl \
+	lib/EIT/View/TT.pm \
 	lib/NHT.pm \
-	lib/EIT/Controller/Root.pm \
-	lib/EIT.pm
-	$(NOECHO) $(POD2MAN) --section=1 --perm_rw=$(PERM_RW) \
-	  script/eit_cgi.pl $(INST_MAN1DIR)/eit_cgi.pl.$(MAN1EXT) \
+	lib/EIT/Controller/Root.pm
+	$(NOECHO) $(POD2MAN) --section=$(MAN1EXT) --perm_rw=$(PERM_RW) \
+	  script/eit2010_test.pl $(INST_MAN1DIR)/eit2010_test.pl.$(MAN1EXT) \
 	  script/eit_server.pl $(INST_MAN1DIR)/eit_server.pl.$(MAN1EXT) \
 	  script/eit_create.pl $(INST_MAN1DIR)/eit_create.pl.$(MAN1EXT) \
+	  script/eit2010_cgi.pl $(INST_MAN1DIR)/eit2010_cgi.pl.$(MAN1EXT) \
+	  script/eit_cgi.pl $(INST_MAN1DIR)/eit_cgi.pl.$(MAN1EXT) \
 	  script/eit_test.pl $(INST_MAN1DIR)/eit_test.pl.$(MAN1EXT) \
+	  script/eit2010_create.pl $(INST_MAN1DIR)/eit2010_create.pl.$(MAN1EXT) \
+	  script/eit2010_fastcgi.pl $(INST_MAN1DIR)/eit2010_fastcgi.pl.$(MAN1EXT) \
+	  script/eit2010_server.pl $(INST_MAN1DIR)/eit2010_server.pl.$(MAN1EXT) \
 	  script/eit_fastcgi.pl $(INST_MAN1DIR)/eit_fastcgi.pl.$(MAN1EXT) 
-	$(NOECHO) $(POD2MAN) --section=3 --perm_rw=$(PERM_RW) \
+	$(NOECHO) $(POD2MAN) --section=$(MAN3EXT) --perm_rw=$(PERM_RW) \
+	  lib/EIT/View/TT.pm $(INST_MAN3DIR)/EIT::View::TT.$(MAN3EXT) \
 	  lib/NHT.pm $(INST_MAN3DIR)/NHT.$(MAN3EXT) \
-	  lib/EIT/Controller/Root.pm $(INST_MAN3DIR)/EIT::Controller::Root.$(MAN3EXT) \
-	  lib/EIT.pm $(INST_MAN3DIR)/EIT.$(MAN3EXT) 
+	  lib/EIT/Controller/Root.pm $(INST_MAN3DIR)/EIT::Controller::Root.$(MAN3EXT) 
 
 
 
@@ -462,22 +601,24 @@ manifypods : pure_all  \
 
 # --- MakeMaker installbin section:
 
-EXE_FILES = script/eit_cgi.pl script/eit_create.pl script/eit_fastcgi.pl script/eit_server.pl script/eit_test.pl
+EXE_FILES = script/eit2010_cgi.pl script/eit2010_create.pl script/eit2010_fastcgi.pl script/eit2010_server.pl script/eit2010_test.pl script/eit_cgi.pl script/eit_create.pl script/eit_fastcgi.pl script/eit_server.pl script/eit_test.pl
 
-pure_all :: $(INST_SCRIPT)/eit_cgi.pl $(INST_SCRIPT)/eit_server.pl $(INST_SCRIPT)/eit_create.pl $(INST_SCRIPT)/eit_test.pl $(INST_SCRIPT)/eit_fastcgi.pl
+pure_all :: $(INST_SCRIPT)/eit2010_test.pl $(INST_SCRIPT)/eit_server.pl $(INST_SCRIPT)/eit_create.pl $(INST_SCRIPT)/eit2010_cgi.pl $(INST_SCRIPT)/eit_cgi.pl $(INST_SCRIPT)/eit_test.pl $(INST_SCRIPT)/eit2010_create.pl $(INST_SCRIPT)/eit2010_fastcgi.pl $(INST_SCRIPT)/eit2010_server.pl $(INST_SCRIPT)/eit_fastcgi.pl
 	$(NOECHO) $(NOOP)
 
 realclean ::
 	$(RM_F) \
-	  $(INST_SCRIPT)/eit_cgi.pl $(INST_SCRIPT)/eit_server.pl \
-	  $(INST_SCRIPT)/eit_create.pl $(INST_SCRIPT)/eit_test.pl \
-	  $(INST_SCRIPT)/eit_fastcgi.pl 
+	  $(INST_SCRIPT)/eit2010_test.pl $(INST_SCRIPT)/eit_server.pl \
+	  $(INST_SCRIPT)/eit_create.pl $(INST_SCRIPT)/eit2010_cgi.pl \
+	  $(INST_SCRIPT)/eit_cgi.pl $(INST_SCRIPT)/eit_test.pl \
+	  $(INST_SCRIPT)/eit2010_create.pl $(INST_SCRIPT)/eit2010_fastcgi.pl \
+	  $(INST_SCRIPT)/eit2010_server.pl $(INST_SCRIPT)/eit_fastcgi.pl 
 
-$(INST_SCRIPT)/eit_cgi.pl : script/eit_cgi.pl $(FIRST_MAKEFILE) $(INST_SCRIPT)$(DFSEP).exists $(INST_BIN)$(DFSEP).exists
-	$(NOECHO) $(RM_F) $(INST_SCRIPT)/eit_cgi.pl
-	$(CP) script/eit_cgi.pl $(INST_SCRIPT)/eit_cgi.pl
-	$(FIXIN) $(INST_SCRIPT)/eit_cgi.pl
-	-$(NOECHO) $(CHMOD) $(PERM_RWX) $(INST_SCRIPT)/eit_cgi.pl
+$(INST_SCRIPT)/eit2010_test.pl : script/eit2010_test.pl $(FIRST_MAKEFILE) $(INST_SCRIPT)$(DFSEP).exists $(INST_BIN)$(DFSEP).exists
+	$(NOECHO) $(RM_F) $(INST_SCRIPT)/eit2010_test.pl
+	$(CP) script/eit2010_test.pl $(INST_SCRIPT)/eit2010_test.pl
+	$(FIXIN) $(INST_SCRIPT)/eit2010_test.pl
+	-$(NOECHO) $(CHMOD) $(PERM_RWX) $(INST_SCRIPT)/eit2010_test.pl
 
 $(INST_SCRIPT)/eit_server.pl : script/eit_server.pl $(FIRST_MAKEFILE) $(INST_SCRIPT)$(DFSEP).exists $(INST_BIN)$(DFSEP).exists
 	$(NOECHO) $(RM_F) $(INST_SCRIPT)/eit_server.pl
@@ -491,11 +632,41 @@ $(INST_SCRIPT)/eit_create.pl : script/eit_create.pl $(FIRST_MAKEFILE) $(INST_SCR
 	$(FIXIN) $(INST_SCRIPT)/eit_create.pl
 	-$(NOECHO) $(CHMOD) $(PERM_RWX) $(INST_SCRIPT)/eit_create.pl
 
+$(INST_SCRIPT)/eit2010_cgi.pl : script/eit2010_cgi.pl $(FIRST_MAKEFILE) $(INST_SCRIPT)$(DFSEP).exists $(INST_BIN)$(DFSEP).exists
+	$(NOECHO) $(RM_F) $(INST_SCRIPT)/eit2010_cgi.pl
+	$(CP) script/eit2010_cgi.pl $(INST_SCRIPT)/eit2010_cgi.pl
+	$(FIXIN) $(INST_SCRIPT)/eit2010_cgi.pl
+	-$(NOECHO) $(CHMOD) $(PERM_RWX) $(INST_SCRIPT)/eit2010_cgi.pl
+
+$(INST_SCRIPT)/eit_cgi.pl : script/eit_cgi.pl $(FIRST_MAKEFILE) $(INST_SCRIPT)$(DFSEP).exists $(INST_BIN)$(DFSEP).exists
+	$(NOECHO) $(RM_F) $(INST_SCRIPT)/eit_cgi.pl
+	$(CP) script/eit_cgi.pl $(INST_SCRIPT)/eit_cgi.pl
+	$(FIXIN) $(INST_SCRIPT)/eit_cgi.pl
+	-$(NOECHO) $(CHMOD) $(PERM_RWX) $(INST_SCRIPT)/eit_cgi.pl
+
 $(INST_SCRIPT)/eit_test.pl : script/eit_test.pl $(FIRST_MAKEFILE) $(INST_SCRIPT)$(DFSEP).exists $(INST_BIN)$(DFSEP).exists
 	$(NOECHO) $(RM_F) $(INST_SCRIPT)/eit_test.pl
 	$(CP) script/eit_test.pl $(INST_SCRIPT)/eit_test.pl
 	$(FIXIN) $(INST_SCRIPT)/eit_test.pl
 	-$(NOECHO) $(CHMOD) $(PERM_RWX) $(INST_SCRIPT)/eit_test.pl
+
+$(INST_SCRIPT)/eit2010_create.pl : script/eit2010_create.pl $(FIRST_MAKEFILE) $(INST_SCRIPT)$(DFSEP).exists $(INST_BIN)$(DFSEP).exists
+	$(NOECHO) $(RM_F) $(INST_SCRIPT)/eit2010_create.pl
+	$(CP) script/eit2010_create.pl $(INST_SCRIPT)/eit2010_create.pl
+	$(FIXIN) $(INST_SCRIPT)/eit2010_create.pl
+	-$(NOECHO) $(CHMOD) $(PERM_RWX) $(INST_SCRIPT)/eit2010_create.pl
+
+$(INST_SCRIPT)/eit2010_fastcgi.pl : script/eit2010_fastcgi.pl $(FIRST_MAKEFILE) $(INST_SCRIPT)$(DFSEP).exists $(INST_BIN)$(DFSEP).exists
+	$(NOECHO) $(RM_F) $(INST_SCRIPT)/eit2010_fastcgi.pl
+	$(CP) script/eit2010_fastcgi.pl $(INST_SCRIPT)/eit2010_fastcgi.pl
+	$(FIXIN) $(INST_SCRIPT)/eit2010_fastcgi.pl
+	-$(NOECHO) $(CHMOD) $(PERM_RWX) $(INST_SCRIPT)/eit2010_fastcgi.pl
+
+$(INST_SCRIPT)/eit2010_server.pl : script/eit2010_server.pl $(FIRST_MAKEFILE) $(INST_SCRIPT)$(DFSEP).exists $(INST_BIN)$(DFSEP).exists
+	$(NOECHO) $(RM_F) $(INST_SCRIPT)/eit2010_server.pl
+	$(CP) script/eit2010_server.pl $(INST_SCRIPT)/eit2010_server.pl
+	$(FIXIN) $(INST_SCRIPT)/eit2010_server.pl
+	-$(NOECHO) $(CHMOD) $(PERM_RWX) $(INST_SCRIPT)/eit2010_server.pl
 
 $(INST_SCRIPT)/eit_fastcgi.pl : script/eit_fastcgi.pl $(FIRST_MAKEFILE) $(INST_SCRIPT)$(DFSEP).exists $(INST_BIN)$(DFSEP).exists
 	$(NOECHO) $(RM_F) $(INST_SCRIPT)/eit_fastcgi.pl
@@ -690,9 +861,7 @@ doc__install : doc_site_install
 	$(NOECHO) $(ECHO) INSTALLDIRS not defined, defaulting to INSTALLDIRS=site
 
 pure_perl_install :: all
-	$(NOECHO) $(MOD_INSTALL) \
-		read $(PERL_ARCHLIB)/auto/$(FULLEXT)/.packlist \
-		write $(DESTINSTALLARCHLIB)/auto/$(FULLEXT)/.packlist \
+	$(NOECHO) umask 022; $(MOD_INSTALL) \
 		$(INST_LIB) $(DESTINSTALLPRIVLIB) \
 		$(INST_ARCHLIB) $(DESTINSTALLARCHLIB) \
 		$(INST_BIN) $(DESTINSTALLBIN) \
@@ -704,7 +873,7 @@ pure_perl_install :: all
 
 
 pure_site_install :: all
-	$(NOECHO) $(MOD_INSTALL) \
+	$(NOECHO) umask 02; $(MOD_INSTALL) \
 		read $(SITEARCHEXP)/auto/$(FULLEXT)/.packlist \
 		write $(DESTINSTALLSITEARCH)/auto/$(FULLEXT)/.packlist \
 		$(INST_LIB) $(DESTINSTALLSITELIB) \
@@ -717,9 +886,7 @@ pure_site_install :: all
 		$(PERL_ARCHLIB)/auto/$(FULLEXT)
 
 pure_vendor_install :: all
-	$(NOECHO) $(MOD_INSTALL) \
-		read $(VENDORARCHEXP)/auto/$(FULLEXT)/.packlist \
-		write $(DESTINSTALLVENDORARCH)/auto/$(FULLEXT)/.packlist \
+	$(NOECHO) umask 022; $(MOD_INSTALL) \
 		$(INST_LIB) $(DESTINSTALLVENDORLIB) \
 		$(INST_ARCHLIB) $(DESTINSTALLVENDORARCH) \
 		$(INST_BIN) $(DESTINSTALLVENDORBIN) \
@@ -728,50 +895,31 @@ pure_vendor_install :: all
 		$(INST_MAN3DIR) $(DESTINSTALLVENDORMAN3DIR)
 
 doc_perl_install :: all
-	$(NOECHO) $(ECHO) Appending installation info to $(DESTINSTALLARCHLIB)/perllocal.pod
-	-$(NOECHO) $(MKPATH) $(DESTINSTALLARCHLIB)
-	-$(NOECHO) $(DOC_INSTALL) \
-		"Module" "$(NAME)" \
-		"installed into" "$(INSTALLPRIVLIB)" \
-		LINKTYPE "$(LINKTYPE)" \
-		VERSION "$(VERSION)" \
-		EXE_FILES "$(EXE_FILES)" \
-		>> $(DESTINSTALLARCHLIB)/perllocal.pod
 
 doc_site_install :: all
-	$(NOECHO) $(ECHO) Appending installation info to $(DESTINSTALLARCHLIB)/perllocal.pod
-	-$(NOECHO) $(MKPATH) $(DESTINSTALLARCHLIB)
-	-$(NOECHO) $(DOC_INSTALL) \
+	$(NOECHO) $(ECHO) Appending installation info to $(DESTINSTALLSITEARCH)/perllocal.pod
+	-$(NOECHO) umask 02; $(MKPATH) $(DESTINSTALLSITEARCH)
+	-$(NOECHO) umask 02; $(DOC_INSTALL) \
 		"Module" "$(NAME)" \
 		"installed into" "$(INSTALLSITELIB)" \
 		LINKTYPE "$(LINKTYPE)" \
 		VERSION "$(VERSION)" \
 		EXE_FILES "$(EXE_FILES)" \
-		>> $(DESTINSTALLARCHLIB)/perllocal.pod
+		>> $(DESTINSTALLSITEARCH)/perllocal.pod
 
 doc_vendor_install :: all
-	$(NOECHO) $(ECHO) Appending installation info to $(DESTINSTALLARCHLIB)/perllocal.pod
-	-$(NOECHO) $(MKPATH) $(DESTINSTALLARCHLIB)
-	-$(NOECHO) $(DOC_INSTALL) \
-		"Module" "$(NAME)" \
-		"installed into" "$(INSTALLVENDORLIB)" \
-		LINKTYPE "$(LINKTYPE)" \
-		VERSION "$(VERSION)" \
-		EXE_FILES "$(EXE_FILES)" \
-		>> $(DESTINSTALLARCHLIB)/perllocal.pod
 
 
 uninstall :: uninstall_from_$(INSTALLDIRS)dirs
 	$(NOECHO) $(NOOP)
 
 uninstall_from_perldirs ::
-	$(NOECHO) $(UNINSTALL) $(PERL_ARCHLIB)/auto/$(FULLEXT)/.packlist
 
 uninstall_from_sitedirs ::
 	$(NOECHO) $(UNINSTALL) $(SITEARCHEXP)/auto/$(FULLEXT)/.packlist
 
 uninstall_from_vendordirs ::
-	$(NOECHO) $(UNINSTALL) $(VENDORARCHEXP)/auto/$(FULLEXT)/.packlist
+
 
 
 # --- MakeMaker force section:
@@ -821,7 +969,7 @@ $(MAKE_APERL_FILE) : $(FIRST_MAKEFILE) pm_to_blib
 TEST_VERBOSE=0
 TEST_TYPE=test_$(LINKTYPE)
 TEST_FILE = test.pl
-TEST_FILES = t/01app.t t/02pod.t t/03podcoverage.t t/04nht.t
+TEST_FILES = t/01app.t t/02pod.t t/03podcoverage.t t/04nht.t t/controller_JSON.t t/model_NHT.t t/view_JSON.t t/view_TT.t
 TESTDB_SW = -d
 
 testdb :: testdb_$(LINKTYPE)
@@ -847,18 +995,17 @@ testdb_static :: testdb_dynamic
 # --- MakeMaker ppd section:
 # Creates a PPD (Perl Package Description) for a binary distribution.
 ppd :
-	$(NOECHO) $(ECHO) '<SOFTPKG NAME="$(DISTNAME)" VERSION="0.01">' > $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '    <ABSTRACT>Catalyst based application</ABSTRACT>' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '    <AUTHOR>pete gamache</AUTHOR>' >> $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '<SOFTPKG NAME="$(DISTNAME)" VERSION="0.1">' > $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '    <ABSTRACT></ABSTRACT>' >> $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '    <AUTHOR></AUTHOR>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <IMPLEMENTATION>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::Action::RenderView" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::Plugin::ConfigLoader" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::Plugin::Static::Simple" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::Runtime" VERSION="5.80013" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Config::General" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="ExtUtils::MakeMaker" VERSION="6.42" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="parent::" />' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <ARCHITECTURE NAME="darwin-2level-5.10" />' >> $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '        <ARCHITECTURE NAME="i686-linux-gnu-thread-multi-64int-5.12" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <CODEBASE HREF="" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    </IMPLEMENTATION>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '</SOFTPKG>' >> $(DISTNAME).ppd
@@ -868,12 +1015,55 @@ ppd :
 
 pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 	$(NOECHO) $(ABSPERLRUN) -MExtUtils::Install -e 'pm_to_blib({@ARGV}, '\''$(INST_LIB)/auto'\'', q[$(PM_FILTER)], '\''$(PERM_DIR)'\'')' -- \
+	  lib/NHT/Trophy/Runaway.pm blib/lib/NHT/Trophy/Runaway.pm \
+	  lib/NHT/.DS_Store blib/lib/NHT/.DS_Store \
+	  update_scores_2009.pl $(INST_LIB)/update_scores_2009.pl \
+	  lib/NHT/Trophy/FastestAscensionRealtime.pm blib/lib/NHT/Trophy/FastestAscensionRealtime.pm \
 	  test_NHT.pl $(INST_LIB)/test_NHT.pl \
+	  lib/NHT/Trophy/SlowestAscensionRealtime.pm blib/lib/NHT/Trophy/SlowestAscensionRealtime.pm \
+	  update_scores_2008.pl $(INST_LIB)/update_scores_2008.pl \
+	  lib/NHT/Trophy/DeathRay.pm blib/lib/NHT/Trophy/DeathRay.pm \
+	  lib/.DS_Store blib/lib/.DS_Store \
+	  lib/NHT/Trophy/Startscummers.pm blib/lib/NHT/Trophy/Startscummers.pm \
+	  lib/NHT/Trophy/PointsPerGame.pm blib/lib/NHT/Trophy/PointsPerGame.pm \
+	  lib/EIT/View/JSON.pm blib/lib/EIT/View/JSON.pm \
+	  lib/NHT/Trophy/RoleHighScores.pm blib/lib/NHT/Trophy/RoleHighScores.pm \
+	  lib/NHT/Trophy/Gluttons.pm blib/lib/NHT/Trophy/Gluttons.pm \
+	  update_clan_info.pl $(INST_LIB)/update_clan_info.pl \
+	  lib/NHT/Trophy/GruesomeDeaths.pm blib/lib/NHT/Trophy/GruesomeDeaths.pm \
+	  lib/NHT/Trophy/Monty.pm blib/lib/NHT/Trophy/Monty.pm \
+	  lib/NHT/Trophy/Transsexuals.pm blib/lib/NHT/Trophy/Transsexuals.pm \
+	  lib/NHT/Trophy/Anorexics.pm blib/lib/NHT/Trophy/Anorexics.pm \
+	  lib/NHT/Trophy/LowestScoredAscension.pm blib/lib/NHT/Trophy/LowestScoredAscension.pm \
+	  lib/NHT/Trophy/FirstAscension.pm blib/lib/NHT/Trophy/FirstAscension.pm \
+	  lib/EIT/Controller/JSON.pm blib/lib/EIT/Controller/JSON.pm \
 	  lib/NHT/Trophy.pm blib/lib/NHT/Trophy.pm \
-	  lib/NHT/Trophy/MostAscensions.pm blib/lib/NHT/Trophy/MostAscensions.pm \
 	  lib/NHT.pm blib/lib/NHT.pm \
+	  lib/NHT/Trophy/FirstDeath.pm blib/lib/NHT/Trophy/FirstDeath.pm \
+	  lib/NHT/Trophy/Trippers.pm blib/lib/NHT/Trophy/Trippers.pm \
+	  lib/NHT/Trophy/SlowestAscensionGametime.pm blib/lib/NHT/Trophy/SlowestAscensionGametime.pm \
+	  lib/EIT/View/TT.pm blib/lib/EIT/View/TT.pm \
+	  lib/NHT/Trophy/HelplessFucks.pm blib/lib/NHT/Trophy/HelplessFucks.pm \
+	  lib/NHT/Trophy/HighScore.pm blib/lib/NHT/Trophy/HighScore.pm \
+	  lib/NHT/Trophy/Stars.pm blib/lib/NHT/Trophy/Stars.pm \
+	  lib/NHT/Trophy/BestOf13.pm blib/lib/NHT/Trophy/BestOf13.pm \
+	  lib/NHT/Trophy/Underperformers.pm blib/lib/NHT/Trophy/Underperformers.pm \
+	  lib/NHT/Trophy/FastestAscensionGametime.pm blib/lib/NHT/Trophy/FastestAscensionGametime.pm \
 	  lib/EIT/Controller/Root.pm blib/lib/EIT/Controller/Root.pm \
-	  lib/EIT.pm blib/lib/EIT.pm 
+	  lib/EIT/Model/NHT.pm blib/lib/EIT/Model/NHT.pm \
+	  lib/NHT/Trophy/ShopkeeperBrawls.pm blib/lib/NHT/Trophy/ShopkeeperBrawls.pm \
+	  lib/NHT/Trophy/AscensionsPerGame.pm blib/lib/NHT/Trophy/AscensionsPerGame.pm \
+	  lib/NHT/Trophy/HighestScoredAscension.pm blib/lib/NHT/Trophy/HighestScoredAscension.pm \
+	  lib/EIT.pm blib/lib/EIT.pm \
+	  update_scores.pl $(INST_LIB)/update_scores.pl \
+	  lib/NHT/Trophy/Retards.pm blib/lib/NHT/Trophy/Retards.pm 
+	$(NOECHO) $(ABSPERLRUN) -MExtUtils::Install -e 'pm_to_blib({@ARGV}, '\''$(INST_LIB)/auto'\'', q[$(PM_FILTER)], '\''$(PERM_DIR)'\'')' -- \
+	  lib/NHT/Trophy/Stoners.pm blib/lib/NHT/Trophy/Stoners.pm \
+	  lib/NHT/Trophy/Traitors.pm blib/lib/NHT/Trophy/Traitors.pm \
+	  lib/NHT/Trophy/BestBehavedAscension.pm blib/lib/NHT/Trophy/BestBehavedAscension.pm \
+	  lib/NHT/Trophy/SoClose.pm blib/lib/NHT/Trophy/SoClose.pm \
+	  lib/NHT/Trophy/MostAscensions.pm blib/lib/NHT/Trophy/MostAscensions.pm \
+	  lib/EIT/.DS_Store blib/lib/EIT/.DS_Store 
 	$(NOECHO) $(TOUCH) pm_to_blib
 
 
@@ -884,7 +1074,7 @@ pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 
 
 # End.
-# Postamble by Module::Install 0.91
+# Postamble by Module::Install 1.04
 # --- Module::Install::Admin::Makefile section:
 
 realclean purge ::
@@ -905,7 +1095,7 @@ distsign ::
 	cpansign -s
 
 catalyst_par :: all
-	$(NOECHO) $(PERL) -Ilib -Minc::Module::Install -MModule::Install::Catalyst -e"Catalyst::Module::Install::_catalyst_par( '', 'EIT', { CLASSES => [], CORE => 0, ENGINE => 'CGI', MULTIARCH => 0, SCRIPT => '', USAGE => q## } )"
+	$(NOECHO) $(PERL) -Ilib -Minc::Module::Install -MModule::Install::Catalyst -e"Catalyst::Module::Install::_catalyst_par( '', 'EIT', { CLASSES => [], PAROPTS =>  {}, ENGINE => 'CGI', SCRIPT => '', USAGE => q## } )"
 # --- Module::Install::AutoInstall section:
 
 config :: installdeps
@@ -916,4 +1106,19 @@ checkdeps ::
 
 installdeps ::
 	$(NOECHO) $(NOOP)
+
+installdeps_notest ::
+	$(NOECHO) $(NOOP)
+
+upgradedeps ::
+	$(PERL) Makefile.PL --config= --upgradedeps=Catalyst::Runtime,5.80013,Catalyst::Plugin::ConfigLoader,0,Catalyst::Plugin::Static::Simple,0,Catalyst::Action::RenderView,0,parent,0,Config::General,0
+
+upgradedeps_notest ::
+	$(PERL) Makefile.PL --config=notest,1 --upgradedeps=Catalyst::Runtime,5.80013,Catalyst::Plugin::ConfigLoader,0,Catalyst::Plugin::Static::Simple,0,Catalyst::Action::RenderView,0,parent,0,Config::General,0
+
+listdeps ::
+	@$(PERL) -le "print for @ARGV" 
+
+listalldeps ::
+	@$(PERL) -le "print for @ARGV" Catalyst::Runtime Catalyst::Plugin::ConfigLoader Catalyst::Plugin::Static::Simple Catalyst::Action::RenderView parent Config::General
 

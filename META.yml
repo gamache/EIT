@@ -1,14 +1,13 @@
 ---
-abstract: 'Catalyst based application'
-author:
-  - 'pete gamache'
+abstract: ~
 build_requires:
-  ExtUtils::MakeMaker: 6.42
+  ExtUtils::MakeMaker: 6.36
 configure_requires:
-  ExtUtils::MakeMaker: 6.42
+  ExtUtils::MakeMaker: 6.36
 distribution_type: module
-generated_by: 'Module::Install version 0.91'
-license: perl
+dynamic_config: 1
+generated_by: 'Module::Install version 1.04'
+license: unknown
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
@@ -24,6 +23,4 @@ requires:
   Catalyst::Runtime: 5.80013
   Config::General: 0
   parent: 0
-resources:
-  license: http://dev.perl.org/licenses/
-version: 0.01
+version: 0.1

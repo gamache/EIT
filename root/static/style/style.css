@@ -22,6 +22,10 @@ div#footer {
 	color: green;
 }
 
+#year-links a {
+  color: white;
+}
+
 div#status_msg {
 	clear: both;
 	font-size: 14pt;
