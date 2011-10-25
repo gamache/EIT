@@ -1,0 +1,24 @@
+<div class="player">
+[% IF player != 'o lol eit_krog' %]
+<h2 class="headline">[% player %]</h2>
+
+<div class="graph">
+<img class="graph scores_graph" src="http://graph.gunyoki.net/games/[% player %]">
+</div>
+[% ELSE %]
+
+<h2 class="headline">[% player %]</h2>
+
+<p>[% games.size %] games played</p>
+<p>[% ascensions %] ascensions</p>
+
+<img class="rightgraph" src="http://graph.gunyoki.net/games/[% player %]">
+
+
+
+[% END %]
+
+[% INCLUDE 'games_table.tt' %]
+
+</div> <!-- class="player" -->
+

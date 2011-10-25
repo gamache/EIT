@@ -1,0 +1,13 @@
+<div class="trophy [% trophy_class %] monty">
+<h3 class="trophy_name">[% trophy_name %]</h3>
+[% IF trophy_desc -%]
+	<p class="trophy_desc">[% trophy_desc %]</p>
+[% END -%]
+[% FOREACH r IN results -%]
+	<span class="monty_player[% r.value==1 ? ' bells' : '' %]">
+		<a href="player/[% r.player %]" [% r.value==1 ? 'title="with bells on"' : ''%]>
+			[% r.player %]
+		</a>
+	</span>
+[% END -%]
+</div>

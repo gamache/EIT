@@ -1,0 +1,413 @@
+<div class="selector">
+<ul>
+	<li>
+		<a href="#elite_trophies" onclick="return EIT.show_all_sections()">
+			View All
+		</a>
+	</li>
+	<li>
+		<a href="#elite_trophies" onclick="return EIT.show_section('elite_trophies')">
+			Elite Trophies
+		</a>
+	</li>
+	<li>
+		<a href="#regular_trophies" onclick="return EIT.show_section('regular_trophies')">
+			Regular Trophies
+		</a>
+	<li>
+		<a href="#high_scores" onclick="return EIT.show_section('high_scores')">
+			High Scores
+		</a>
+	</li>
+	<li>
+		<a href="#recognition_trophies" onclick="return EIT.show_section('recognition_trophies')">
+			Recognition Trophies
+		</a>
+	</li>
+</ul>
+</div>
+
+<hr/>
+
+<div class="trophy_group" id="elite_trophies">
+<a name="elite_trophies">
+<h2 class="section_title">Elite Trophies</h2>
+</a>
+
+
+[% INCLUDE 'trophy.tt' 
+	results=trophy_results.slowest_ascension_gametime
+	trophy_name='Slowest Ascension'
+	value_name='Turns'
+%]
+
+[% INCLUDE 'trophy.tt' 
+	results=trophy_results.startscummers
+	trophy_name='Startscummers'
+	value_name='Scums'
+%]
+
+[% INCLUDE 'trophy.tt' 
+	results=trophy_results.helpless_fucks
+	trophy_name='Helpless Deaths'
+	value_name='Helpless Deaths'
+%]
+
+[% INCLUDE 'trophy.tt' 
+	results=trophy_results.traitors
+	trophy_name='Traitors'
+	value_name='Alignment Conversions'
+%]
+
+<br class="trophy_break"/>
+
+[% INCLUDE 'trophy.tt' 
+	results=trophy_results.transsexuals
+	trophy_name='Transsexuals'
+	value_name='Gender Conversions'
+%]
+
+[% INCLUDE 'trophy.tt' 
+	results=trophy_results.gruesome_deaths
+	trophy_name='Gruesome Deaths'
+	value_name='Deaths by Grue'
+%]
+
+[% INCLUDE 'trophy.tt' 
+	results=trophy_results.gluttons
+	trophy_name='Gluttons'
+	value_name='Deaths by Choking'
+%]
+
+[% INCLUDE 'trophy.tt' 
+	results=trophy_results.anorexics
+	trophy_name='Anorexics'
+	value_name='Deaths by Starvation'
+%]
+
+<br class="trophy_break"/>
+
+[% INCLUDE 'trophy.tt' 
+	results=trophy_results.shopkeeper_brawls
+	trophy_name='Shoplifters'
+	value_name='Deaths by Shopkeeper'
+%]
+
+[% INCLUDE 'trophy.tt'
+	results=trophy_results.stoners
+	trophy_name='Stoners'
+	value_name='Deaths by Petrification'
+%]
+
+[% INCLUDE 'trophy.tt'
+	results=trophy_results.first_death
+	trophy_name='First Death'
+	value_name='Date'
+%]
+
+[% INCLUDE 'trophy.tt'
+  results=trophy_results.retards
+  trophy_name='Retards'
+  value_name='Brainless Deaths'
+%]
+
+<br class="trophy_break"/>
+
+[% INCLUDE 'trophy.tt'
+  results=trophy_results.points_per_game
+  trophy_name='Points Per Game'
+  value_name='Points Per Game'
+%]
+
+[% INCLUDE 'trophy.tt'
+  results=trophy_results.ascensions_per_game
+  trophy_name='Ascensions Per Game'
+  value_name='Ascensions Per Game'
+%]
+
+[% INCLUDE 'trophy.tt'
+  results=trophy_results.trippers
+  trophy_name='Trippers'
+  value_name='Deaths while Hallucinating'
+%]
+
+[% INCLUDE 'trophy.tt'
+  results=trophy_results.runaway
+  trophy_name='RUN AWAY'
+  value_name='Deaths by Quest Nemesis'
+%]
+
+
+<br class="trophy_break"/>
+
+</div> <!-- id="elite_trophies" -->
+
+<div class="trophy_group" id="regular_trophies">
+<a name="regular_trophies">
+<h2 class="section_title">Regular Trophies</h2>
+</a>
+
+[% INCLUDE 'trophy.tt'
+	results=trophy_results.most_ascensions
+	trophy_name='Most Ascensions'
+	value_name='Ascensions'
+%]
+
+[% INCLUDE 'trophy.tt'
+	results=trophy_results.highest_scored_ascension
+	trophy_name='Highest Scored Ascension'
+	value_name='Ascensions'
+%]
+
+[% INCLUDE 'trophy.tt'
+	results=trophy_results.fastest_ascension_realtime
+	trophy_name='Fastest Ascension (Realtime)'
+	value_name='Time'
+%]
+
+[% INCLUDE 'trophy.tt'
+	results=trophy_results.fastest_ascension_gametime
+	trophy_name='Fastest Ascension (Turns)'
+	value_name='Turns'
+%]
+
+<br class="trophy_break"/>
+
+[% INCLUDE 'trophy.tt'
+	results=trophy_results.first_ascension
+	trophy_name='First Ascension'
+	value_name='Date'
+%]
+
+[% INCLUDE 'trophy.tt'
+	results=trophy_results.best_behaved_ascension
+	trophy_name='Best Behaved Ascension'
+	value_name='Conducts'
+%]
+
+[% INCLUDE 'trophy.tt'
+	results=trophy_results.lowest_scored_ascension
+	trophy_name='Lowest Scored Ascension'
+%]
+
+[% INCLUDE 'trophy.tt'
+	results=trophy_results.best_of_13
+	trophy_name='Best of 13'
+	value_name='Ascensions'
+%]
+
+<br class="trophy_break"/>
+
+</div> <!-- id="regular_trophies" -->
+
+<div class="trophy_group" id="high_scores">
+<a name="high_scores">
+<h2 class="section_title">High Scores</h2>
+</a>
+
+[% INCLUDE 'trophy.tt'
+	results=trophy_results.high_score
+	trophy_name='Overall'
+%]
+
+[% INCLUDE 'trophy.tt'
+	results=trophy_results.Arc
+	trophy_name='Archeologist'
+%]
+
+[% INCLUDE 'trophy.tt'
+	results=trophy_results.Bar
+	trophy_name='Barbarian'
+%]
+
+[% INCLUDE 'trophy.tt'
+	results=trophy_results.Cav
+	trophy_name='Caveman'
+%]
+
+<br class="trophy_break"/>
+
+[% INCLUDE 'trophy.tt'
+	results=trophy_results.Hea
+	trophy_name='Healer'
+%]
+
+[% INCLUDE 'trophy.tt'
+	results=trophy_results.Kni
+	trophy_name='Knight'
+%]
+
+[% INCLUDE 'trophy.tt'
+	results=trophy_results.Mon
+	trophy_name='Monk'
+%]
+
+[% INCLUDE 'trophy.tt'
+	results=trophy_results.Pri
+	trophy_name='Priest'
+%]
+
+<br class="trophy_break"/>
+
+[% INCLUDE 'trophy.tt'
+	results=trophy_results.Rog
+	trophy_name='Rogue'
+%]
+
+[% INCLUDE 'trophy.tt'
+	results=trophy_results.Ran
+	trophy_name='Ranger'
+%]
+
+[% INCLUDE 'trophy.tt'
+	results=trophy_results.Sam
+	trophy_name='Samurai'
+%]
+
+[% INCLUDE 'trophy.tt'
+	results=trophy_results.Tou
+	trophy_name='Tourist'
+%]
+
+<br class="trophy_break"/>
+
+[% INCLUDE 'trophy.tt'
+	results=trophy_results.Val
+	trophy_name='Valkyrie'
+%]
+
+
+[% INCLUDE 'trophy.tt'
+	results=trophy_results.Wiz
+	trophy_name='Wizard'
+%]
+
+<br class="trophy_break"/>
+
+</div> <!-- id="high_scores" -->
+
+
+<div class="trophy_group" id="recognition_trophies">
+<a name="recognition_trophies">
+<h2 class="section_title">Recognition Trophies</h2>
+</a>
+
+
+<div style="display: none"><span class="monty_player bells">
+<a href="#">CSS sucks, so this is somehow necessary.</a>
+</span></div>
+
+[% INCLUDE 'monty.tt' 
+	results=trophy_results.full_monty 
+	trophy_name='Full Monty'
+	trophy_desc='Ascended every gender, alignment, race, role, and conduct'
+%]
+[% INCLUDE 'monty.tt' 
+	results=trophy_results.grand_slam 
+	trophy_name='Grand Slam' 
+	trophy_desc='Ascended every gender, alignment, race, and role'
+%]
+[% INCLUDE 'monty.tt' 
+	results=trophy_results.hat_trick  
+	trophy_name='Hat Trick'  
+	trophy_desc='Ascended every gender, alignment, and race'
+%]
+[% INCLUDE 'monty.tt' 
+	results=trophy_results.double_top 
+	trophy_name='Double Top' 
+	trophy_desc='Ascended every gender and alignment'
+%]
+
+<br class="trophy_break"/>
+
+[% INCLUDE 'monty.tt' 
+	results=trophy_results.birdie     
+	trophy_name='Birdie'     
+	trophy_desc='Ascended every gender'
+%]
+
+[% INCLUDE 'monty.tt'
+	results=trophy_results.dilithium
+	trophy_name='Dilithium Star'
+	trophy_desc='Ascended'
+	trophy_class='doublewide'
+%]
+
+[% INCLUDE 'monty.tt'
+	results=trophy_results.platinum
+	trophy_name='Platinum Star'
+	trophy_desc='Reached the Astral Plane'
+%]
+
+<br class="trophy_break"/>
+
+[% INCLUDE 'monty.tt'
+	results=trophy_results.gold
+	trophy_name='Gold Star'
+	trophy_desc='Reached the Elemental Planes'
+%]
+
+[% INCLUDE 'monty.tt'
+	results=trophy_results.silver
+	trophy_name='Silver Star'
+	trophy_desc='Obtained the Amulet of Yendor'
+%]
+
+[% INCLUDE 'monty.tt'
+	results=trophy_results.bronze
+	trophy_name='Bronze Star'
+	trophy_desc='Performed the Invocation Ritual'
+%]
+
+[% INCLUDE 'monty.tt'
+	results=trophy_results.steel
+	trophy_name='Steel Star'
+	trophy_desc='Obtained the Book of the Dead'
+%]
+
+<br class="trophy_break"/>
+
+[% INCLUDE 'monty.tt'
+	results=trophy_results.brass
+	trophy_name='Brass Star'
+	trophy_desc='Obtained the Candelabrum of Invocation'
+%]
+
+[% INCLUDE 'monty.tt'
+	results=trophy_results.copper
+	trophy_name='Copper Star'
+	trophy_desc='Entered Gehennom'
+%]
+
+[% INCLUDE 'monty.tt'
+	results=trophy_results.zinc
+	trophy_name='Zinc Star'
+	trophy_desc='Defeated Medusa'
+%]
+
+[% INCLUDE 'monty.tt'
+	results=trophy_results.iron
+	trophy_name='Iron Star'
+	trophy_desc='Obtained the Bell of Opening'
+%]
+
+<br class="trophy_break"/>
+
+[% INCLUDE 'monty.tt'
+	results=trophy_results.lead
+	trophy_name='Lead Star'
+	trophy_desc='Reached the bottom of the Gnomish Mines'
+	trophy_class='doublewide'
+%]
+
+
+[% INCLUDE 'monty.tt'
+	results=trophy_results.plastic
+	trophy_name='Plastic Star'
+	trophy_desc='Reached the top of Sokoban'
+	trophy_class='doublewide'
+%]
+
+<br class="trophy_break"/>
+
+</div> <!-- id="recognition_trophies" -->

@@ -1,0 +1,13 @@
+<div class="game">
+[% IF show_player -%]
+	<span class="player">[% game.name %]</span>
+[% END -%]
+	<span class="role">[% game.role %]</span>
+	<span class="race">[% game.race %]</span>
+	<span class="gender0">[% game.gender0 %]</span>
+	<span class="align0">[% game.align0 %]</span> 
+	<span class="maxhp">[% game.maxhp %]</span>
+	<span class="turns">[% game.turns %]</span>
+	<span class="points">[% game.points %]</span>
+	<span class="death">[% game.death %]</span>
+</div zclass="game">
