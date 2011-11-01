@@ -5,7 +5,7 @@
 <html>
 <head>
 	<title>
-		[% page_title || 'Clan EIT Elite Scoreboard'  %]
+		[% page_title || 'Clan EIT Elite Scoreboard 2011'  %]
 		[% page_subtitle ? ' | ' _ page_subtitle : '' %]
 	</title>
 	<link rel="stylesheet" type="text/css" href="/style/style.css" />
@@ -16,7 +16,10 @@
 
 <div id="header">
 <div class="year-links">
-<a href="/2008/">2008</a> | <a href="/2009/">2009</a> | <b>2010</b>
+<a href="/2008/">2008</a> | 
+<a href="/2009/">2009</a> | 
+<a href="/2010/">2010</a> | 
+<b>2011</b>
 </div>
 <div class="search top_search">
 <form action="/search" method="get">
@@ -25,7 +28,7 @@
 </form>
 </div>
 
-<h1 class="headline"><a href="/">Clan EIT Elite Scoreboard</a></h1>
+<h1 class="headline"><a href="/">Clan EIT Elite Scoreboard 2011</a></h1>
 [% IF updated_on %]
 <h3 class="headline updated_on">Updated: [% updated_on %]</h3>
 [% END %]
@@ -42,7 +45,7 @@
 </div><!-- id="content" -->
 
 <div id="footer">
-copyright 1979-2010 eit_krog.  
+copyright 1979-2011 eit_krog.  
 this data updates every ten minutes.  
 go kill things
 </div><!-- id="footer" -->

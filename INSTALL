@@ -1,0 +1,2 @@
+shit install directions:
+cpan -i Catalyst::Devel Catalyst::Plugin::PageCache Catalyst::Plugin::Cache::FastMmap Catalyst::View::TT JSON::Any Catalyst::View::JSON Catalyst::Plugin::Static::Simple FCGI FCGI::ProcManager
