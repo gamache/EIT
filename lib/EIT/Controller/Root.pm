@@ -101,6 +101,17 @@ sub player :Path('player') Args(1) {
   }
 }
 
+sub json_player :Path('json/players') Args(1) {
+  my ($self, $c, $player) = @_;
+  if ($player) {
+    $c->stash->{json} = { 
+      name => $player,
+      games => $c->model('NHT')->games($player),
+    };
+  }
+}
+
+
 sub game :Path('game') Args(1) {
 	my ($self, $c, $game_id) = @_;
 

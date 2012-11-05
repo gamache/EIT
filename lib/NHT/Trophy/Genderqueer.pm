@@ -1,6 +1,6 @@
-package NHT::Trophy::Transsexuals;
+package NHT::Trophy::Genderqueer;
 
-sub name { "transsexuals" }
+sub name { "genderqueer" }
 
 sub results {
   my ($class, $nht) = @_;

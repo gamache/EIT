@@ -62,8 +62,8 @@
 <br class="trophy_break"/>
 
 [% INCLUDE 'trophy.tt' 
-	results=trophy_results.transsexuals
-	trophy_name='Transsexuals'
+	results=trophy_results.genderqueer
+	trophy_name='Genderqueer'
 	value_name='Gender Conversions'
 %]
 

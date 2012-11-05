@@ -20,3 +20,8 @@ var EIT = {
 		return false;
 	}
 };
+
+function log10(x) {
+  return Math.log(x + 0.0001) / Math.log(10);
+}
+

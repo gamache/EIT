@@ -1,24 +1,40 @@
 <div class="player">
-[% IF player != 'o lol eit_krog' %]
 <h2 class="headline">[% player %]</h2>
 
-<div class="graph">
-<img class="graph scores_graph" src="http://graph.gunyoki.net/games/[% player %]">
-</div>
-[% ELSE %]
-
-<h2 class="headline">[% player %]</h2>
-
-<p>[% games.size %] games played</p>
-<p>[% ascensions %] ascensions</p>
-
-<img class="rightgraph" src="http://graph.gunyoki.net/games/[% player %]">
-
-
-
-[% END %]
+<div id="graph" style="width: 600px; height: 400px; margin: 0 auto;"></div>
 
 [% INCLUDE 'games_table.tt' %]
 
 </div> <!-- class="player" -->
+
+<script>
+var games = [% games_json %];
+var log_data = [];
+var score_data = [];
+for (var i in games) {
+  var p = parseInt(games[i].points);
+  score_data.push(p);
+  log_data.push(parseFloat(log10(p).toFixed(2)));
+}
+var chart;
+  chart = new Highcharts.Chart({
+    chart: { renderTo: 'graph',
+             defaultSeriesType: 'line' 
+    },
+    title: { text: '[% player %]' },
+    xAxis: { title: { text: 'Games' }},
+    yAxis: [
+      {title: {text: 'Score'},
+       labels: {formatter: function() {return this.value + ' points'} }
+      },
+      {title: {text: 'log10(score)'},
+       opposite: true
+      }
+    ],
+    series: [
+      {name: 'Linear',      data: score_data, type: 'column'},
+      {name: 'Logarithmic', data: log_data,   type: 'spline', yAxis: 1}
+    ]
+  });
+</script>
 
