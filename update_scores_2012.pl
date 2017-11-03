@@ -14,7 +14,7 @@ unless (-f '/tmp/eit2012.update') {
   
   chdir '/home/gamache/sites/EIT2012' or die $!;
   
-  system('lynx -source http://nethack.devnull.net/tournament/scores.xlogfile > scores.xlogfile.2012');
+  #system('lynx -source http://nethack.devnull.net/tournament/scores.xlogfile > scores.xlogfile.2012');
    
   system("script/eit_fastcgi.pl -l /tmp/eit2012.socket.$this_pid -n 3 -p /tmp/eit2012.pid.$this_pid -d");
   

@@ -9,7 +9,7 @@
 		[% page_subtitle ? ' | ' _ page_subtitle : '' %]
 	</title>
 	<link rel="stylesheet" type="text/css" href="/style/style.css" />
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
   <script type="text/javascript" src="/js/highcharts.js"></script>
   <script type="text/javascript" src="/js/highcharts-gray.js"></script>
 	<script type="text/javascript" src="/js/eit.js"></script>
@@ -18,11 +18,9 @@
 
 <div id="header">
 <div class="year-links">
-<a href="/2008/">2008</a> | 
-<a href="/2009/">2009</a> | 
-<a href="/2010/">2010</a> | 
-<a href="/2011/">2011</a> | 
-<a href="/">2012</a>
+<a href="/">2017</a>
+-
+The <a href="https://www.hardfought.org/devnull/" target="_blank">/dev/null/nethack Tribute Tournament</a>
 </div>
 <div class="search top_search">
 <form action="/search" method="get">
@@ -48,8 +46,8 @@
 </div><!-- id="content" -->
 
 <div id="footer">
-copyright 1979-2012 eit_krog.  
-this data updates every ten minutes.  
+copyright 1979-2017 eit_krog.
+this data updates every ten minutes.
 go kill things
 </div><!-- id="footer" -->
 

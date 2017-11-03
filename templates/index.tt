@@ -63,7 +63,7 @@
 
 [% INCLUDE 'trophy.tt' 
 	results=trophy_results.genderqueer
-	trophy_name='Genderqueer'
+	trophy_name='Gender Hackers'
 	value_name='Gender Conversions'
 %]
 
@@ -81,7 +81,7 @@
 
 [% INCLUDE 'trophy.tt' 
 	results=trophy_results.anorexics
-	trophy_name='Anorexics'
+	trophy_name='Undereaters'
 	value_name='Deaths by Starvation'
 %]
 
@@ -107,7 +107,7 @@
 
 [% INCLUDE 'trophy.tt'
   results=trophy_results.retards
-  trophy_name='Retards'
+  trophy_name='Dummies'
   value_name='Brainless Deaths'
 %]
 

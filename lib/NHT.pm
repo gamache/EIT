@@ -238,8 +238,11 @@ sub load_xlogfile {
   open XLOG, '<', $args{xlogfile} or die $!; # should not happen
   while (<XLOG>) {
     chomp;
-    my ($id, $stats_str) = /^(\d\S+)\s+(.+)$/ or next;
-    my %stats = split /[:=]/, $stats_str;
+    #my ($id, $stats_str) = /^(\d\S+)\s+(.+)$/ or next;
+    my %stats = split /[\t=]/; #, $stats_str;
+    my @chars = ('A'..'Z', 'a'..'z');
+    my $id = '';
+    $id .= $chars[rand @chars] for 1..16;
     $self->log_game($id, %stats);
   }
   close XLOG;
@@ -354,9 +357,11 @@ sub compute_stats {
   $self->debug("Computing stats...");
 
 	$self->debug("  finding server names");
-  my %server_id = 
-		map {/^(\d+)-/; $1 => 1}
-			keys %{ $self->{GAME} } ;
+  #my %server_id = 
+#		map {/^(\d+)-/; $1 => 1}
+#			keys %{ $self->{GAME} } ;
+
+  my %server_id = ();
 	$self->{SERVERS} = [ sort {$a<=>$b} keys %server_id ];
   
   sub highscore { $b->{points} <=> $a->{points} }
